@@ -1,0 +1,64 @@
+/* SIDEBAR */
+
+/* sidebar title - ប្រព័ន្ធជួយការងារសាលារៀន */
+.site_title {
+  text-align: center;
+  padding-left: 0 !important;
+  font-family: var(--title-ff);
+  font-size: 1.8rem !important;
+}
+.nav_title {
+  width: 100% !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+}
+/* ---------------- */
+
+/* sidebar menu */
+.nav-md #sidebar {
+  display: block !important;
+  @media screen and (width < 991px) {
+    display: none !important;
+  }
+}
+/* SVG icon for each menu in sidebar */
+.side-menu li a:has(svg) svg {
+  aspect-ratio: 1/1;
+  width: 20px !important;
+  flex-shrink: 0;
+}
+/* each menu when sidebar is expanded */
+.nav-md .side-menu li a {
+  font-family: var(--subtitle-ff);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & > span {
+    font-size: 1.5rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+  }
+}
+/* each menu when sidebar is collapsed */
+.nav-sm .side-menu li a {
+  font-family: var(--paragraph-ff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > span {
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  & span:last-of-type {
+    display: none;
+  }
+}
+/* sub menu in each menu of sidebar */
+.nav .child_menu li a {
+  font-size: 1.5rem !important;
+  font-family: var(--paragraph-ff);
+}
+/* ---------------- */
