@@ -1,0 +1,52 @@
+/* FONTS */
+
+/* setting local fonts */
+@font-face {
+  font-family: "KantumruyPro";
+  src: url("../fonts/kantumruy-pro-khmer-400-normal.ttf");
+}
+@font-face {
+  font-family: "KantumruyProBold";
+  src: url("../fonts/kantumruy-pro-khmer-700-normal.ttf");
+}
+@font-face {
+  font-family: "KhmerOSMuolLight";
+  src: url("../fonts/KhmerOSMuollight.ttf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Light.ttf");
+}
+@font-face {
+  font-family: "RobotoMedium";
+  src: url("../fonts/Roboto-Medium.ttf");
+}
+@font-face {
+  font-family: "RobotoBold";
+  src: url("../fonts/Roboto-Bold.ttf");
+}
+
+/* fonts variables */
+:root {
+  /* AUTO EN-KH */
+  --title-ff: "RobotoBold", "KhmerOSMuolLight";
+  --subtitle-ff: "RobotoMedium", "KantumruyProBold";
+  --paragraph-ff: "Roboto", "KantumruyPro";
+
+  /* ENGLISH */
+  --en-title-ff: "RobotoBold";
+  --en-subtitle-ff: "RobotoMedium";
+  --en-paragraph-ff: "Roboto";
+  --en-title-fs: "";
+  --en-subtitle-fs: "";
+  --en-paragraph-fs: "";
+
+  /* KHMER */
+  --kh-title-ff: "KhmerOSMuolLight";
+  --kh-subtitle-ff: "KantumruyProBold";
+  --kh-paragraph-ff: "KantumruyPro";
+  --kh-title-fs: "";
+  --kh-subtitle-fs: "";
+  --kh-paragraph-fs: "";
+}
