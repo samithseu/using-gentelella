@@ -3499,7 +3499,7 @@ form:after {
   text-decoration: underline;
 }
 .login_content h1 {
-  font: normal 2rem Helvetica, Arial, "Moul", sans-serif;
+  font: 2rem var(--title-ff);
   letter-spacing: -0.05em;
   line-height: 20px;
   margin: 10px 0 30px;
@@ -3547,6 +3547,7 @@ form:after {
 .login_content form input[type="text"],
 .login_content form input[type="email"],
 .login_content form input[type="password"] {
+  font-family: var(--paragraph-ff);
   border-radius: 3px;
   -ms-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
   -o-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
@@ -3565,6 +3566,9 @@ form:after {
   background-color: #fff;
   border: 1px solid #a878af;
   outline: none;
+}
+.login_content form .submit {
+  font-family: var(--subtitle-ff) !important;
 }
 #username {
   background-position: 10px 10px !important;
@@ -3604,6 +3608,7 @@ form:after {
 #content form .submit {
   float: left;
   margin-left: 38px;
+  font-family: var(--subtitle-ff) !important;
 }
 .button a {
   background: url(http://cssdeck.com/uploads/media/items/8/8bcLQqF.png) 0 -112px
