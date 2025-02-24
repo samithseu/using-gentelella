@@ -1,11 +1,10 @@
-/* FONTS */
-@import url("https://fonts.googleapis.com/css2?family=Moul&display=swap");
+/* imports */
+@import url("fonts.css");
+@import url("customize.css");
+/* ---------------- */
 
-/* font utilities classes */
-.moul-regular {
-  font-family: "Moul" !important;
-  font-weight: 400;
-  font-style: normal;
+:root {
+  --sizebar-width: 300px;
 }
 
 html,
@@ -185,19 +184,14 @@ body {
   font-size: 27px;
   margin: 13px 0 0 3px;
 }
-.site_title i {
-  border: 1px solid #eaeaea;
-  padding: 5px 6px;
-  border-radius: 50%;
-}
-.site_title img {
-  max-height: 66px;
-  max-width: 180px;
-}
+
 .nav-sm .main_container .top_nav {
   display: block;
   margin-left: 70px;
   z-index: 2;
+}
+.nav-sm .nav.side-menu li svg {
+  width: 20px;
 }
 .nav-sm .nav.side-menu li a {
   text-align: center !important;
@@ -345,7 +339,7 @@ body {
 }
 .nav-md .container.body .col-md-3.left_col {
   min-height: 100%;
-  width: 230px;
+  width: var(--sizebar-width);
   padding: 0;
   position: absolute;
   display: -ms-flexbox;
@@ -361,13 +355,13 @@ body .container.body .right_col {
 }
 .nav-md .container.body .right_col {
   padding: 10px 20px 0;
-  margin-left: 230px;
+  margin-left: var(--sizebar-width);
 }
 .nav_title {
-  width: 230px;
+  border: none;
+  width: fit-content;
   float: left;
   background: #2a3f54;
-  border-radius: 0;
   height: 57px;
 }
 @media (max-width: 991px) {
@@ -499,14 +493,14 @@ body .container.body .right_col {
 body {
   color: #73879c;
   background: #2a3f54;
-  font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+  font-family: var(--paragraph-ff), sans-serif;
   font-size: 13px;
   font-weight: 400;
   line-height: 1.471;
 }
 .main_container .top_nav {
   display: block;
-  margin-left: 230px;
+  margin-left: var(--sizebar-width);
 }
 .no-padding {
   padding: 0 !important;
@@ -832,6 +826,7 @@ a:focus {
   height: 55px;
   margin: 0;
   padding-left: 10px;
+  text-align: "center";
 }
 .site_title:hover,
 .site_title:focus {
@@ -1678,7 +1673,7 @@ span.right {
   display: block;
   padding: 5px 0 0 0;
   position: fixed;
-  width: 230px;
+  width: var(--sizebar-width);
   background: #2a3f54;
   z-index: 999;
 }
@@ -1709,7 +1704,7 @@ span.right {
 }
 @media (min-width: 992px) {
   footer {
-    margin-left: 230px;
+    margin-left: var(--sizebar-width);
   }
 }
 @media (min-width: 992px) {
