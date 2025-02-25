@@ -20,14 +20,27 @@
     display: none !important;
   }
 }
+
+/* each menu section title */
+.menu_section h3 {
+  font-family: var(--paragraph-ff) !important;
+  padding-left: 1em;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.5px;
+  font-size: 1.6rem;
+  margin-block: 0.5em;
+}
+
 /* SVG icon for each menu in sidebar */
 .side-menu li a:has(svg) svg {
   aspect-ratio: 1/1;
   width: 20px !important;
   flex-shrink: 0;
 }
+
 /* each menu when sidebar is expanded */
 .nav-md .side-menu li a {
+  padding-inline-start: 2.5em;
   font-family: var(--subtitle-ff);
   display: flex;
   align-items: center;
@@ -56,9 +69,23 @@
     display: none;
   }
 }
+
 /* sub menu in each menu of sidebar */
 .nav .child_menu li a {
   font-size: 1.5rem !important;
   font-family: var(--paragraph-ff);
+}
+.nav-md ul.nav.child_menu li {
+  & a {
+    padding-inline-start: 2.2rem;
+  }
+  /* list-dotted for sub menu in each menu */
+  --left-size: 4.2rem;
+  &::before {
+    left: calc(var(--left-size) - 4px) !important;
+  }
+  &::after {
+    left: var(--left-size) !important;
+  }
 }
 /* ---------------- */
