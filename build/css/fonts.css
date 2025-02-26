@@ -4,35 +4,41 @@
 @font-face {
   font-family: "KantumruyPro";
   src: url("../fonts/kantumruy-pro-khmer-400-normal.ttf");
+  font-weight: 400;
 }
 @font-face {
   font-family: "KantumruyProBold";
   src: url("../fonts/kantumruy-pro-khmer-700-normal.ttf");
+  font-weight: 700;
 }
 @font-face {
   font-family: "KhmerOSMuolLight";
   src: url("../fonts/KhmerOSMuollight.ttf");
+  font-weight: 900;
 }
 
 @font-face {
   font-family: "Roboto";
   src: url("../fonts/Roboto-Light.ttf");
+  font-weight: 300;
 }
 @font-face {
   font-family: "RobotoMedium";
   src: url("../fonts/Roboto-Medium.ttf");
+  font-weight: 500;
 }
 @font-face {
   font-family: "RobotoBold";
   src: url("../fonts/Roboto-Bold.ttf");
+  font-weight: 700;
 }
 
 /* fonts variables */
 :root {
   /* AUTO EN-KH */
-  --title-ff: "RobotoBold", "KhmerOSMuolLight";
-  --subtitle-ff: "RobotoMedium", "KantumruyProBold";
-  --paragraph-ff: "Roboto", "KantumruyPro";
+  --title-ff: var(--en-title-ff), var(--kh-title-ff);
+  --subtitle-ff: var(--en-subtitle-ff), var(--kh-subtitle-ff);
+  --paragraph-ff: var(--en-paragraph-ff), var(--kh-paragraph-ff);
 
   /* ENGLISH */
   --en-title-ff: "RobotoBold";
