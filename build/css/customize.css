@@ -89,3 +89,40 @@
   }
 }
 /* ---------------- */
+
+/* CONTENT */
+/* tile stats */
+.content-section_title {
+  font-family: var(--title-ff);
+  font-size: 2.4rem;
+  margin-block: 1em !important;
+}
+.tile_count .tile_stats_count {
+  & .count_top,
+  & .count_bottom {
+    font-family: var(--paragraph-ff);
+  }
+  & .count_top {
+    font-size: 1.6rem;
+    &:has(svg) svg {
+      fill: #73879c;
+      aspect-ratio: 1/1;
+      width: 0.8em !important;
+    }
+  }
+  & .count {
+    font-family: var(--subtitle-ff);
+  }
+
+  & .count_bottom {
+    display: flex;
+    gap: 0.5em;
+    & .green,
+    & .red {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+/* ---------------- */
