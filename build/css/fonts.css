@@ -2,6 +2,11 @@
 
 /* setting local fonts */
 @font-face {
+  font-family: "Kantumruy Pro";
+  src: url("../fonts/KantumruyPro-VariableFont_wght.ttf");
+  font-weight: 400 700;
+}
+@font-face {
   font-family: "KantumruyPro";
   src: url("../fonts/kantumruy-pro-khmer-400-normal.ttf");
   font-weight: 400;
@@ -17,6 +22,11 @@
   font-weight: 900;
 }
 
+@font-face {
+  font-family: "RobotoWeight";
+  src: url("../fonts/Roboto-VariableFont_wght.ttf");
+  font-weight: 300 700;
+}
 @font-face {
   font-family: "Roboto";
   src: url("../fonts/Roboto-Light.ttf");
@@ -39,6 +49,7 @@
   --title-ff: var(--en-title-ff), var(--kh-title-ff);
   --subtitle-ff: var(--en-subtitle-ff), var(--kh-subtitle-ff);
   --paragraph-ff: var(--en-paragraph-ff), var(--kh-paragraph-ff);
+  --variable-ff: "RobotoWeight", "Kantumruy Pro";
 
   /* ENGLISH */
   --en-title-ff: "RobotoBold";
