@@ -1,951 +1,1343 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Gentelella Alela! |</title>
-
-    <!-- Bootstrap -->
-    <link
-      href="./vendors/bootstrap/dist/css/bootstrap.min.css"
-      rel="stylesheet"
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="This is a home page for our system - នេះគឺជា home page សម្រាប់ system របស់ពួកយើង"
     />
-    <!-- Font Awesome -->
-    <link
-      href="./vendors/font-awesome/css/font-awesome.min.css"
-      rel="stylesheet"
+    <meta property="og:title" content="HomePage" />
+    <meta
+      property="og:description"
+      content="This is a home page for our system - នេះគឺជា home page សម្រាប់ system របស់ពួកយើង"
     />
-    <!-- NProgress -->
-    <link href="./vendors/nprogress/nprogress.css" rel="stylesheet" />
-    <!-- iCheck -->
-    <link href="./vendors/iCheck/skins/flat/green.css" rel="stylesheet" />
-
-    <!-- bootstrap-progressbar -->
+    <meta property="og:image" content="./build/images/homepage-hero.jpg" />
+    <title>HomePage</title>
     <link
-      href="./vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css"
-      rel="stylesheet"
+      rel="shortcut icon"
+      href="https://cdn-icons-png.flaticon.com/512/2630/2630878.png"
+      type="image/x-icon"
     />
-    <!-- JQVMap -->
-    <link href="./vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
-    <!-- bootstrap-daterangepicker -->
-    <link
-      href="./vendors/bootstrap-daterangepicker/daterangepicker.css"
-      rel="stylesheet"
-    />
-
-    <!-- Custom Theme Style -->
-    <link href="./build/css/custom.css" rel="stylesheet" />
+    <script
+      type="module"
+      crossorigin
+      src="./build/css/frontend/script.js"
+    ></script>
+    <link rel="stylesheet" crossorigin href="./build/css/frontend/style.css" />
   </head>
-
-  <body class="nav-md">
-    <div class="container body">
-      <div class="main_container">
-        <div class="col-md-3 left_col" id="sidebar">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title">
-              <a
-                href="index.html"
-                class="site_title"
-                title="ប្រព័ន្ធជួយការងារសាលារៀន"
-              >
-                ប្រព័ន្ធជួយការងារសាលារៀន
-              </a>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <!-- sidebar menu -->
-            <div
-              id="sidebar-menu"
-              class="main_menu_side hidden-print main_menu"
+  <body class="bg-light overflow-x-hidden">
+    <!-- header -->
+    <header class="sticky top-0 z-50 backdrop-blur-lg">
+      <!-- header container -->
+      <nav
+        class="flex flex-col gap-4 md:flex-row md:justify-between max-w-prefer mx-auto px-4 py-6 md:px-4 prefer:px-0 transition-all duration-300"
+      >
+        <!-- logo -->
+        <div class="flex justify-between items-center md:w-max">
+          <a href="/" class="gradient-text text-2xl font-semibold">
+            HomePage
+          </a>
+          <svg
+            id="toggle"
+            xmlns="http://www.w3.org/2000/svg"
+            class="select-none size-6 md:hidden text-black transition duration-200 hover:text-secondary"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 6h18M3 12h18M3 18h18"
+            />
+          </svg>
+        </div>
+        <!-- navbar -->
+        <ul
+          id="navlink"
+          class="flex flex-col gap-2 border-t md:border-none border-gray-300 pt-4 md:p-0 items-center md:flex-row md:items-center md:gap-4 lg:gap-8 *:text-gray-600 *:font-semibold *:transition *:duration-200 *:hover:gradient-text *:text-[1rem]"
+        >
+          <li><a href="#features">លក្ខណៈពិសេស</a></li>
+          <li><a href="#testimonials">ការគាំទ្រ</a></li>
+          <li><a href="#pricing">តម្លៃ</a></li>
+          <li><a href="#contact">ទំនាក់ទំនង</a></li>
+        </ul>
+        <!-- cta -->
+        <ul
+          id="cta"
+          class="flex flex-col items-center md:flex-row gap-6 *:text-gray-600 *:font-semibold *:transition *:duration-200 *:text-[1rem] pb-4 md:pb-0"
+        >
+          <li>
+            <a
+              href="login.html"
+              class="bg-transparent py-3 px-4 rounded-lg transition duration-200 hover:bg-gray-200"
+              >ចូលគណនី</a
             >
-              <div class="menu_section">
-                <ul class="nav side-menu">
-                  <h3>ព័ត៌មានអង្គភាព</h3>
-                  <!-- school info -->
-                  <li>
-                    <a>
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 512 512"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M256 370.43L96 279v98.42l160 88.88l160-88.88V279z"
-                          />
-                          <path
-                            fill="currentColor"
-                            d="M512.25 192L256 45.57L-.25 192L256 338.43l208-118.86V384h48V192.14z"
-                          />
-                        </svg>
-                        ព័ត៌មានសាលា
-                      </span>
-                      <span class="fa fa-chevron-down"></span>
-                    </a>
-                    <ul class="nav child_menu">
-                      <li><a href="index.html">ជ្រើសរើសសាលារៀន</a></li>
-                      <li><a href="index.html">ព័ត៌មានសាលារៀន</a></li>
-                      <li><a href="index.html">ផ្នែកមធ្យមសិក្សា</a></li>
-                    </ul>
-                  </li>
-                  <!-- ​schedule info -->
-                  <li>
-                    <a>
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="32"
-                          height="32"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M19 4h-1V3c0-.6-.4-1-1-1s-1 .4-1 1v1H8V3c0-.6-.4-1-1-1s-1 .4-1 1v1H5C3.3 4 2 5.3 2 7v1h20V7c0-1.7-1.3-3-3-3M2 19c0 1.7 1.3 3 3 3h14c1.7 0 3-1.3 3-3v-9H2zm15-7c.6 0 1 .4 1 1s-.4 1-1 1s-1-.4-1-1s.4-1 1-1m0 4c.6 0 1 .4 1 1s-.4 1-1 1s-1-.4-1-1s.4-1 1-1m-5-4c.6 0 1 .4 1 1s-.4 1-1 1s-1-.4-1-1s.4-1 1-1m0 4c.6 0 1 .4 1 1s-.4 1-1 1s-1-.4-1-1s.4-1 1-1m-5-4c.6 0 1 .4 1 1s-.4 1-1 1s-1-.4-1-1s.4-1 1-1m0 4c.6 0 1 .4 1 1s-.4 1-1 1s-1-.4-1-1s.4-1 1-1"
-                          />
-                        </svg>
-                        កាលវិភាគសាលា
-                      </span>
-                      <span class="fa fa-chevron-down"></span>
-                    </a>
-                    <ul class="nav child_menu">
-                      <li><a href="index.html">ព័ត៌មានគ្រូបង្រៀន</a></li>
-                      <li><a href="index.html">បង្កើតថ្នាក់រៀន</a></li>
-                      <li><a href="index.html">បន្ថែម/កែមុខវិជ្ជា</a></li>
-                      <li><a href="index.html">កំណត់គ្រូ/ថ្នាក់</a></li>
-                      <li><a href="index.html">បង្កើតកាលវិភាគ</a></li>
-                      <li><a href="index.html">ទាញទិន្នន័យកាលវិភាគចាស់</a></li>
-                    </ul>
-                  </li>
-                  <!-- certificate info -->
-                  <li>
-                    <a>
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="32"
-                          height="32"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M4 3c-1.11 0-2 .89-2 2v10a2 2 0 0 0 2 2h8v5l3-3l3 3v-5h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm8 2l3 2l3-2v3.5l3 1.5l-3 1.5V15l-3-2l-3 2v-3.5L9 10l3-1.5zM4 5h5v2H4zm0 4h3v2H4zm0 4h5v2H4z"
-                          />
-                        </svg>
-                        លិខិតសរសើរចំពោះសិស្ស
-                      </span>
-                      <span class="fa fa-chevron-down"></span>
-                    </a>
-                    <ul class="nav child_menu">
-                      <li>
-                        <a href="index.html">បញ្ចូលឈ្មោះសម្រាប់លិខិតសរសើរ</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <!-- charity info -->
-                  <li>
-                    <a>
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="32"
-                          height="32"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M12.75 3.94c1-.72 2.16-1.08 3.47-1.08c.72 0 1.51.19 2.37.59q1.29.585 2.04 1.38c1.03 1.28 1.46 2.77 1.31 4.47c-.16 1.7-.72 3.03-1.69 3.97l-7.59 7.59c-.19.19-.43.28-.71.28s-.51-.09-.7-.28a.94.94 0 0 1-.28-.7c0-.28.09-.52.28-.71l4.59-4.59c.25-.22.25-.45 0-.7s-.48-.25-.7 0l-4.59 4.59a.95.95 0 0 1-.71.28c-.28 0-.51-.09-.7-.28a.94.94 0 0 1-.28-.7c0-.28.09-.52.28-.71l4.59-4.59q.405-.375 0-.75c-.23-.25-.45-.25-.7 0l-4.59 4.64a.98.98 0 0 1-.71.28c-.28 0-.52-.09-.73-.28c-.2-.19-.3-.42-.3-.7q0-.42.33-.75l4.6-4.6c.25-.25.25-.48 0-.7s-.49-.22-.71 0L6.28 14.5c-.22.2-.45.31-.7.31c-.28 0-.52-.1-.7-.31c-.19-.2-.29-.44-.29-.72s.1-.51.29-.7C7.94 10 9.83 8.14 10.55 7.45l3.56 3.52c.39.37.84.56 1.39.56c.7 0 1.25-.28 1.66-.84c.28-.41.38-.86.3-1.36s-.29-.92-.63-1.27zm2.06 6.33L10.55 6l-7.08 7.08c-.84-.85-1.32-2.15-1.43-3.92c-.11-1.76.37-3.29 1.43-4.57c1.19-1.18 2.61-1.78 4.26-1.78c1.66 0 3.07.6 4.22 1.78l4.27 4.27c.19.19.28.42.28.7s-.09.52-.28.71c-.19.18-.42.28-.72.28c-.27 0-.5-.1-.69-.28"
-                          />
-                        </svg>
-                        លិខិតថ្លែងអំណរគុណសប្បុរសជន
-                      </span>
-                      <span class="fa fa-chevron-down"></span>
-                    </a>
-                    <ul class="nav child_menu">
-                      <li>
-                        <a href="index.html">បញ្ចូលឈ្មោះសម្រាប់លិខិតអំណរគុណ</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <!-- donate to developer -->
-                  <li>
-                    <a>
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="32"
-                          height="32"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M18.5 3H6c-1.1 0-2 .9-2 2v5.71c0 3.83 2.95 7.18 6.78 7.29c3.96.12 7.22-3.06 7.22-7v-1h.5c1.93 0 3.5-1.57 3.5-3.5S20.43 3 18.5 3M16 5v3H6V5zm2.5 3H18V5h.5c.83 0 1.5.67 1.5 1.5S19.33 8 18.5 8M4 19h16v2H4z"
-                          />
-                        </svg>
-                        ឧបត្ថម្ភអ្នកអភិវឌ្ឍកម្មវិធី
-                      </span>
-                      <span class="fa fa-chevron-down"></span>
-                    </a>
-                    <ul class="nav child_menu">
-                      <li>
-                        <a href="index.html">តាមរយៈ KHQR</a>
-                      </li>
-                      <li>
-                        <a href="index.html">តាមរយៈ KHQR</a>
-                      </li>
-                      <li>
-                        <a href="index.html">តាមរយៈ KHQR</a>
-                      </li>
-                      <li>
-                        <a href="index.html">តាមរយៈ KHQR</a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-                <ul class="nav side-menu">
-                  <h3>ព័ត៌មាន section បន្ទាប់</h3>
-                  <!-- school info -->
-                  <li>
-                    <a>
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="32"
-                          height="32"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M2.93 17.07A10 10 0 1 1 17.07 2.93A10 10 0 0 1 2.93 17.07M9 11v4h2V9H9zm0-6v2h2V5z"
-                          />
-                        </svg>
-                        ព័ត៌មានបន្ទាប់បន្សំ
-                      </span>
-                      <span class="fa fa-chevron-down"></span>
-                    </a>
-                    <ul class="nav child_menu">
-                      <li><a href="index.html">ព័ត៌មានទី១</a></li>
-                      <li><a href="index.html">ព័ត៌មានទី២</a></li>
-                      <li><a href="index.html">ព័ត៌មានទី៣</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
+          </li>
+          <li>
+            <a
+              href="dashboard.html"
+              class="text-white bg-primary py-3 px-4 rounded-lg transition duration-200 hover:bg-primary/80"
+              >ប្រើប្រាស់ឥឡូវនេះ</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- hero section -->
+      <section class="mt-14">
+        <!-- hero container -->
+        <div
+          class="px-4 md:px-4 prefer:px-0 mx-auto max-w-prefer grid grid-cols-1 lg:grid-cols-2 items-center gap-4"
+        >
+          <!-- left side -->
+          <div class="flex flex-col gap-5 items-center lg:items-start">
+            <span class="small-highlight"> លំហូរនៃកិច្ចការរដ្ឋបាល </span>
+            <h2
+              class="lg:text-left text-3xl md:text-5xl font-bold w-3xl leading-10 md:leading-14 text-center"
+            >
+              សម្រួលរាល់កិច្ចការ <br />
+              <span class="gradient-text">រដ្ឋបាលរបស់សាលារៀន</span>
+            </h2>
+            <p
+              class="lg:text-left text-xl text-balance text-gray-600 text-center"
+            >
+              កាត់បន្ថយនូវការចំណាយពេលវេលាច្រើន លើកិច្ចការដ្ឋបាល
+              ធ្វើឱ្យការបង្រៀនកាន់តែមានរយៈពេលខ្លី។
+              អស់បារម្មណ៍ទៀតហើយជាមួយនឹងប្រព័ន្ធរបស់យើង!
+            </p>
+            <div
+              class="flex flex-col md:flex-row items-center gap-4 w-full md:w-max md:mx-auto lg:m-0"
+            >
+              <a
+                href="dashboard.html"
+                class="group w-full md:w-max md:px-6 h-max flex justify-center items-center gap-1 bg-primary rounded-lg py-2 text-white font-bold cursor-pointer lg:hover:bg-primary/80 transition duration-200 shrink-0"
+              >
+                <span>ប្រើប្រាស់ឥឡូវនេះ</span>
+                <svg
+                  class="size-5 group-hover:translate-x-1.5 transition duration-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M16.15 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.15L13.3 8.15q-.3-.3-.288-.7t.288-.7q.3-.3.713-.312t.712.287L19.3 11.3q.15.15.213.325t.062.375t-.062.375t-.213.325l-4.575 4.575q-.3.3-.712.288t-.713-.313q-.275-.3-.288-.7t.288-.7z"
+                  />
+                </svg>
+              </a>
+              <button
+                class="md:px-6 py-2 rounded-lg border border-primary/30 font-bold w-full md:w-max cursor-pointer bg-transparent lg:hover:bg-primary/10 transition duration-200 shrink-0"
+              >
+                កក់នូវសេវាកម្ម
+              </button>
             </div>
-            <!-- /sidebar menu -->
+            <ul
+              class="flex flex-col items-start gap-2 mb-6 md:flex-row lg:gap-6"
+            >
+              <li
+                class="flex items-center gap-2 *:first:text-primary *:first:size-6"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                  />
+                </svg>
+                <span class="text-gray-700"> ងាយស្រួលប្រើប្រាស់ </span>
+              </li>
+              <li
+                class="flex items-center gap-2 *:first:text-primary *:first:size-6"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                  />
+                </svg>
+                <span class="text-gray-700"> មានការ support 24/7 </span>
+              </li>
+              <li
+                class="flex items-center gap-2 *:first:text-primary *:first:size-6"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                  />
+                </svg>
+                <span class="text-gray-700"> មានទំនុកចិត្ត </span>
+              </li>
+            </ul>
+          </div>
+          <!-- right side -->
+          <div
+            class="aspect-video overflow-hidden rounded-xl shadow-lg shadow-primary/15 md:w-[80%] md:mx-auto lg:w-full"
+          >
+            <img
+              class="object-cover w-full h-full saturate-[115%] transition duration-400 hover:scale-105"
+              src="./build/images/homepage-hero.jpg"
+              alt="Hero Image"
+            />
           </div>
         </div>
-
-        <!-- top navigation -->
+      </section>
+      <!-- features section -->
+      <section id="features" class="mt-36">
+        <!-- features container -->
         <div
-          class="top_nav"
-          style="position: sticky; top: 0px; right: 0px; z-index: 99"
+          class="px-4 md:px-4 prefer:px-0 mx-auto max-w-prefer grid grid-cols-1 justify-items-center gap-5"
         >
-          <div class="nav_menu">
-            <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+          <span class="small-highlight">រាល់លក្ខណៈពិសេសរបស់ប្រព័ន្ធ</span>
+          <!-- feature title -->
+          <h2
+            class="text-black text-center text-xl font-bold text-balance md:text-3xl lg:w-[90%]"
+          >
+            រាល់កិច្ចការសម្រាប់ផ្នែកអប់រំទាំងឡាយគឺអាចដោះស្រាយបានជាមួយប្រព័ន្ធរបស់យើង
+          </h2>
+          <!-- feature subtitle -->
+          <h3 class="text-center text-gray-600 text-lg md:text-xl mb-8">
+            ចំណុចពិសេសខាងក្រោមនេះអាចធ្វើឱ្យអ្នកជ្រើសរើសយកពួកយើង៖
+          </h3>
+          <!-- all cards -->
+          <div
+            class="w-full h-max grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8"
+          >
+            <!-- each card -->
+            <div
+              class="card bg-white rounded-xl p-6 shadow lg:shadow-lg transition duration-200 hover:-translate-y-2"
+            >
+              <!-- card icon -->
+              <div
+                class="w-max h-max bg-primary/10 rounded-lg p-2 grid place-items-center mb-3 *:size-7 *:text-primary"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M2 5V3q0-.825.588-1.412T4 1h2q.425 0 .713.288T7 2t-.288.713T6 3H4v2q0 .425-.288.713T3 6t-.712-.288T2 5m18 0V3h-2q-.425 0-.712-.288T17 2t.288-.712T18 1h2q.825 0 1.413.588T22 3v2q0 .425-.288.713T21 6t-.712-.288T20 5M2 21v-2q0-.425.288-.712T3 18t.713.288T4 19v2h2q.425 0 .713.288T7 22t-.288.713T6 23H4q-.825 0-1.412-.587T2 21m18 2h-2q-.425 0-.712-.288T17 22t.288-.712T18 21h2v-2q0-.425.288-.712T21 18t.713.288T22 19v2q0 .825-.587 1.413T20 23M7 18h10V6H7zm0 2q-.825 0-1.412-.587T5 18V6q0-.825.588-1.412T7 4h10q.825 0 1.413.588T19 6v12q0 .825-.587 1.413T17 20zm3-10h4q.425 0 .713-.288T15 9t-.288-.712T14 8h-4q-.425 0-.712.288T9 9t.288.713T10 10m0 3h4q.425 0 .713-.288T15 12t-.288-.712T14 11h-4q-.425 0-.712.288T9 12t.288.713T10 13m0 3h4q.425 0 .713-.288T15 15t-.288-.712T14 14h-4q-.425 0-.712.288T9 15t.288.713T10 16m-3 2V6z"
+                  />
+                </svg>
               </div>
-
-              <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                  <a
-                    href="javascript:;"
-                    class="user-profile dropdown-toggle"
-                    data-toggle="dropdown"
-                    aria-expanded="false"
+              <!-- card title -->
+              <h3
+                class="text-2xl text-black/80 font-semibold mb-2 line-clamp-1"
+              >
+                ឯកសារតាមបែបឌីជីថល
+              </h3>
+              <!-- card description -->
+              <p class="text-gray-600 text-lg line-clamp-3 font-light">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In aut
+                itaque asperiores omnis voluptatem, dolorem adipisci? Cupiditate
+              </p>
+            </div>
+            <!-- each card -->
+            <div
+              class="card bg-white rounded-xl p-6 shadow lg:shadow-lg transition duration-200 hover:-translate-y-2"
+            >
+              <!-- card icon -->
+              <div
+                class="w-max h-max bg-primary/10 rounded-lg p-2 grid place-items-center mb-3 *:size-7 *:text-primary"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m10.95 13.7l-1.425-1.425q-.3-.3-.7-.3t-.7.3t-.3.713t.3.712l2.125 2.15q.3.3.7.3t.7-.3l4.25-4.25q.3-.3.3-.712t-.3-.713t-.712-.3t-.713.3zM12 22q-1.875 0-3.512-.712t-2.85-1.925t-1.925-2.85T3 13t.713-3.512t1.924-2.85t2.85-1.925T12 4t3.513.713t2.85 1.925t1.925 2.85T21 13t-.712 3.513t-1.925 2.85t-2.85 1.925T12 22M2.05 7.3q-.275-.275-.275-.7t.275-.7L4.9 3.05q.275-.275.7-.275t.7.275t.275.7t-.275.7L3.45 7.3q-.275.275-.7.275t-.7-.275m19.9 0q-.275.275-.7.275t-.7-.275L17.7 4.45q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l2.85 2.85q.275.275.275.7t-.275.7M12 20q2.925 0 4.963-2.037T19 13t-2.037-4.962T12 6T7.038 8.038T5 13t2.038 4.963T12 20"
+                  />
+                </svg>
+              </div>
+              <!-- card title -->
+              <h3
+                class="text-2xl text-black/80 font-semibold mb-2 line-clamp-1"
+              >
+                សន្សំសំចៃពេលវេលា
+              </h3>
+              <!-- card description -->
+              <p class="text-gray-600 text-lg line-clamp-3 font-light">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In aut
+                itaque asperiores omnis voluptatem, dolorem adipisci? Cupiditate
+              </p>
+            </div>
+            <!-- each card -->
+            <div
+              class="card bg-white rounded-xl p-6 shadow lg:shadow-lg transition duration-200 hover:-translate-y-2"
+            >
+              <!-- card icon -->
+              <div
+                class="w-max h-max bg-primary/10 rounded-lg p-2 grid place-items-center mb-3 *:size-7 *:text-primary"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 48 48"
+                >
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linejoin="round"
+                    stroke-width="4"
                   >
-                    <img src="production/images/img.jpg" alt="" />John Doe
-                    <span class="fa fa-angle-down"></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Help</a></li>
-                    <li>
-                      <a href="login.html"
-                        ><i class="fa fa-sign-out pull-right"></i> Log Out</a
-                      >
-                    </li>
-                  </ul>
+                    <path
+                      d="M6 9.256L24.009 4L42 9.256v10.778A26.32 26.32 0 0 1 24.003 45A26.32 26.32 0 0 1 6 20.029z"
+                    />
+                    <path stroke-linecap="round" d="m15 23l7 7l12-12" />
+                  </g>
+                </svg>
+              </div>
+              <!-- card title -->
+              <h3
+                class="text-2xl text-black/80 font-semibold mb-2 line-clamp-1"
+              >
+                ព័ត៌មានមានសុវត្ថិភាព
+              </h3>
+              <!-- card description -->
+              <p class="text-gray-600 text-lg line-clamp-3 font-light">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In aut
+                itaque asperiores omnis voluptatem, dolorem adipisci? Cupiditate
+              </p>
+            </div>
+            <!-- each card -->
+            <div
+              class="card bg-white rounded-xl p-6 shadow lg:shadow-lg transition duration-200 hover:-translate-y-2"
+            >
+              <!-- card icon -->
+              <div
+                class="w-max h-max bg-primary/10 rounded-lg p-2 grid place-items-center mb-3 *:size-7 *:text-primary"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 48 48"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="4"
+                    d="M19 20a7 7 0 1 0 0-14a7 7 0 0 0 0 14M32.608 7A7 7 0 0 1 36 13a7 7 0 0 1-3.392 6M4 40.8V42h30v-1.2c0-4.48 0-6.72-.872-8.432a8 8 0 0 0-3.496-3.496C27.92 28 25.68 28 21.2 28h-4.4c-4.48 0-6.72 0-8.432.872a8 8 0 0 0-3.496 3.496C4 34.08 4 36.32 4 40.8M44 42v-1.2c0-4.48 0-6.72-.872-8.432a8 8 0 0 0-3.496-3.496"
+                  />
+                </svg>
+              </div>
+              <!-- card title -->
+              <h3
+                class="text-2xl text-black/80 font-semibold mb-2 line-clamp-1"
+              >
+                កំណត់អត្តសញ្ញាណត្រឹមត្រូវ
+              </h3>
+              <!-- card description -->
+              <p class="text-gray-600 text-lg line-clamp-3 font-light">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In aut
+                itaque asperiores omnis voluptatem, dolorem adipisci? Cupiditate
+              </p>
+            </div>
+            <!-- each card -->
+            <div
+              class="card bg-white rounded-xl p-6 shadow lg:shadow-lg transition duration-200 hover:-translate-y-2"
+            >
+              <!-- card icon -->
+              <div
+                class="w-max h-max bg-primary/10 rounded-lg p-2 grid place-items-center mb-3 *:size-7 *:text-primary"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M21.92 6.62a1 1 0 0 0-.54-.54A1 1 0 0 0 21 6h-5a1 1 0 0 0 0 2h2.59L13 13.59l-3.29-3.3a1 1 0 0 0-1.42 0l-6 6a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0L9 12.41l3.29 3.3a1 1 0 0 0 1.42 0L20 9.41V12a1 1 0 0 0 2 0V7a1 1 0 0 0-.08-.38"
+                  />
+                </svg>
+              </div>
+              <!-- card title -->
+              <h3
+                class="text-2xl text-black/80 font-semibold mb-2 line-clamp-1"
+              >
+                របាយការណ៍ងាយយល់
+              </h3>
+              <!-- card description -->
+              <p class="text-gray-600 text-lg line-clamp-3 font-light">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In aut
+                itaque asperiores omnis voluptatem, dolorem adipisci? Cupiditate
+              </p>
+            </div>
+            <!-- each card -->
+            <div
+              class="card bg-white rounded-xl p-6 shadow lg:shadow-lg transition duration-200 hover:-translate-y-2"
+            >
+              <!-- card icon -->
+              <div
+                class="w-max h-max bg-primary/10 rounded-lg p-2 grid place-items-center mb-3 *:size-7 *:text-primary"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 48 48"
+                >
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-width="4"
+                  >
+                    <path
+                      stroke-linejoin="round"
+                      d="M33 38H22v-8h14v-8h8v16h-5l-3 3z"
+                    />
+                    <path
+                      stroke-linejoin="round"
+                      d="M4 6h32v24H17l-4 4l-4-4H4z"
+                    />
+                    <path d="M19 18h1m6 0h1m-15 0h1" />
+                  </g>
+                </svg>
+              </div>
+              <!-- card title -->
+              <h3
+                class="text-2xl text-black/80 font-semibold mb-2 line-clamp-1"
+              >
+                ងាយស្រួលទំនាក់ទំនង
+              </h3>
+              <!-- card description -->
+              <p class="text-gray-600 text-lg line-clamp-3 font-light">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In aut
+                itaque asperiores omnis voluptatem, dolorem adipisci? Cupiditate
+              </p>
+            </div>
+            <!-- each card -->
+            <div
+              class="card bg-white rounded-xl p-6 shadow lg:shadow-lg transition duration-200 hover:-translate-y-2"
+            >
+              <!-- card icon -->
+              <div
+                class="w-max h-max bg-primary/10 rounded-lg p-2 grid place-items-center mb-3 *:size-7 *:text-primary"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M5 22q-.825 0-1.412-.587T3 20V6q0-.825.588-1.412T5 4h1V3q0-.425.288-.712T7 2t.713.288T8 3v1h8V3q0-.425.288-.712T17 2t.713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.587 1.413T19 22zm0-2h14V10H5zM5 8h14V6H5zm0 0V6z"
+                  />
+                </svg>
+              </div>
+              <!-- card title -->
+              <h3
+                class="text-2xl text-black/80 font-semibold mb-2 line-clamp-1"
+              >
+                កំណត់កម្មវិធីសិក្សាប្រចាំឆ្នាំ
+              </h3>
+              <!-- card description -->
+              <p class="text-gray-600 text-lg line-clamp-3 font-light">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In aut
+                itaque asperiores omnis voluptatem, dolorem adipisci? Cupiditate
+              </p>
+            </div>
+            <!-- each card -->
+            <div
+              class="card bg-white rounded-xl p-6 shadow lg:shadow-lg transition duration-200 hover:-translate-y-2"
+            >
+              <!-- card icon -->
+              <div
+                class="w-max h-max bg-primary/10 rounded-lg p-2 grid place-items-center mb-3 *:size-7 *:text-primary"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M10.825 22q-.675 0-1.162-.45t-.588-1.1L8.85 18.8q-.325-.125-.612-.3t-.563-.375l-1.55.65q-.625.275-1.25.05t-.975-.8l-1.175-2.05q-.35-.575-.2-1.225t.675-1.075l1.325-1Q4.5 12.5 4.5 12.337v-.675q0-.162.025-.337l-1.325-1Q2.675 9.9 2.525 9.25t.2-1.225L3.9 5.975q.35-.575.975-.8t1.25.05l1.55.65q.275-.2.575-.375t.6-.3l.225-1.65q.1-.65.588-1.1T10.825 2h2.35q.675 0 1.163.45t.587 1.1l.225 1.65q.325.125.613.3t.562.375l1.55-.65q.625-.275 1.25-.05t.975.8l1.175 2.05q.35.575.2 1.225t-.675 1.075l-1.325 1q.025.175.025.338v.674q0 .163-.05.338l1.325 1q.525.425.675 1.075t-.2 1.225l-1.2 2.05q-.35.575-.975.8t-1.25-.05l-1.5-.65q-.275.2-.575.375t-.6.3l-.225 1.65q-.1.65-.587 1.1t-1.163.45zM11 20h1.975l.35-2.65q.775-.2 1.438-.587t1.212-.938l2.475 1.025l.975-1.7l-2.15-1.625q.125-.35.175-.737T17.5 12t-.05-.787t-.175-.738l2.15-1.625l-.975-1.7l-2.475 1.05q-.55-.575-1.212-.962t-1.438-.588L13 4h-1.975l-.35 2.65q-.775.2-1.437.588t-1.213.937L5.55 7.15l-.975 1.7l2.15 1.6q-.125.375-.175.75t-.05.8q0 .4.05.775t.175.75l-2.15 1.625l.975 1.7l2.475-1.05q.55.575 1.213.963t1.437.587zm1.05-4.5q1.45 0 2.475-1.025T15.55 12t-1.025-2.475T12.05 8.5q-1.475 0-2.487 1.025T8.55 12t1.013 2.475T12.05 15.5M12 12"
+                  />
+                </svg>
+              </div>
+              <!-- card title -->
+              <h3
+                class="text-2xl text-black/80 font-semibold mb-2 line-clamp-1"
+              >
+                customize តាមតម្រូវការ
+              </h3>
+              <!-- card description -->
+              <p class="text-gray-600 text-lg line-clamp-3 font-light">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In aut
+                itaque asperiores omnis voluptatem, dolorem adipisci? Cupiditate
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- testimonials section -->
+      <section id="testimonials" class="mt-16 bg-white py-16">
+        <!-- testimonials container -->
+        <div
+          class="px-4 md:px-4 prefer:px-0 mx-auto max-w-prefer grid grid-cols-1 justify-items-center gap-5"
+        >
+          <span class="small-highlight">រាល់ការគាំទ្រមកកាន់ពួកយើង</span>
+          <!-- title -->
+          <h2
+            class="text-black text-center text-xl font-bold text-balance md:text-3xl lg:w-[90%]"
+          >
+            ទំនុកចិត្តមកកាន់ សេវាកម្មរបស់យើង
+          </h2>
+          <!-- subtitle -->
+          <h3 class="text-center text-gray-600 text-lg md:text-xl mb-8">
+            ខាងក្រោមនេះគឺជាការគាំទ្ររបស់បុគ្គលិកអប់រំមកកាន់ប្រព័ន្ធរបស់ពួកយើង៖
+          </h3>
+          <!-- all cards -->
+          <div
+            class="w-full h-max grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
+          >
+            <!-- each card -->
+            <div
+              class="card bg-white rounded-xl p-6 border border-primary/30 transition duration-200 hover:-translate-y-2"
+            >
+              <!-- card icon -->
+              <div
+                class="w-max h-ma rounded-lg grid place-items-center mb-2 *:size-9 *:text-primary/40"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M7.17 17c.51 0 .98-.29 1.2-.74l1.42-2.84c.14-.28.21-.58.21-.89V8c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h2l-1.03 2.06c-.45.89.2 1.94 1.2 1.94m10 0c.51 0 .98-.29 1.2-.74l1.42-2.84c.14-.28.21-.58.21-.89V8c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h2l-1.03 2.06c-.45.89.2 1.94 1.2 1.94"
+                  />
+                </svg>
+              </div>
+              <!-- card description -->
+              <p class="text-gray-600 text-lg line-clamp-4 font-light">
+                ប្រព័ន្ធរបស់អ្នកគឺជាប្រព័ន្ធដែលខ្ញុំប្រើប្រាស់ហើយ
+                ពិតជាបានជួយសន្សំសំចៃពេលវេលាបានច្រើនមែនទែន។
+                សំខាន់គឺវាពិតជាអាចទុកចិត្តបានថែមទាំងមានល្បឿនលឿន។
+              </p>
+              <!-- card rate -->
+              <div
+                class="my-4 flex items-center gap-0.5 *:size-5 *:text-yellow-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+              </div>
+              <!-- card rater -->
+              <h3 class="text-lg">
+                <span class="text-black font-semibold">លោកគ្រូ ICT</span> -
+                <span class="text-gray-600">វិទ្យាល័យកំពង់ស្ពឺ</span>
+              </h3>
+            </div>
+            <!-- each card -->
+            <div
+              class="card bg-white rounded-xl p-6 border border-primary/30 transition duration-200 hover:-translate-y-2"
+            >
+              <!-- card icon -->
+              <div
+                class="w-max h-ma rounded-lg grid place-items-center mb-2 *:size-9 *:text-primary/40"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M7.17 17c.51 0 .98-.29 1.2-.74l1.42-2.84c.14-.28.21-.58.21-.89V8c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h2l-1.03 2.06c-.45.89.2 1.94 1.2 1.94m10 0c.51 0 .98-.29 1.2-.74l1.42-2.84c.14-.28.21-.58.21-.89V8c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h2l-1.03 2.06c-.45.89.2 1.94 1.2 1.94"
+                  />
+                </svg>
+              </div>
+              <!-- card description -->
+              <p class="text-gray-600 text-lg line-clamp-4 font-light">
+                ប្រព័ន្ធរបស់អ្នកគឺជាប្រព័ន្ធដែលខ្ញុំប្រើប្រាស់ហើយ
+                ពិតជាបានជួយសន្សំសំចៃពេលវេលាបានច្រើនមែនទែន។
+                សំខាន់គឺវាពិតជាអាចទុកចិត្តបានថែមទាំងមានល្បឿនលឿន។
+              </p>
+              <!-- card rate -->
+              <div
+                class="my-4 flex items-center gap-0.5 *:size-5 *:text-yellow-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+              </div>
+              <!-- card rater -->
+              <h3 class="text-lg">
+                <span class="text-black font-semibold">លោកគ្រូ គីមីវិទ្យា</span>
+                -
+                <span class="text-gray-600">វិទ្យាល័យជំពូវន្ត</span>
+              </h3>
+            </div>
+            <!-- each card -->
+            <div
+              class="card bg-white rounded-xl p-6 border border-primary/30 transition duration-200 hover:-translate-y-2"
+            >
+              <!-- card icon -->
+              <div
+                class="w-max h-ma rounded-lg grid place-items-center mb-2 *:size-9 *:text-primary/40"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M7.17 17c.51 0 .98-.29 1.2-.74l1.42-2.84c.14-.28.21-.58.21-.89V8c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h2l-1.03 2.06c-.45.89.2 1.94 1.2 1.94m10 0c.51 0 .98-.29 1.2-.74l1.42-2.84c.14-.28.21-.58.21-.89V8c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h2l-1.03 2.06c-.45.89.2 1.94 1.2 1.94"
+                  />
+                </svg>
+              </div>
+              <!-- card description -->
+              <p class="text-gray-600 text-lg line-clamp-4 font-light">
+                ប្រព័ន្ធរបស់អ្នកគឺជាប្រព័ន្ធដែលខ្ញុំប្រើប្រាស់ហើយ
+                ពិតជាបានជួយសន្សំសំចៃពេលវេលាបានច្រើនមែនទែន។
+                សំខាន់គឺវាពិតជាអាចទុកចិត្តបានថែមទាំងមានល្បឿនលឿន។
+              </p>
+              <!-- card rate -->
+              <div
+                class="my-4 flex items-center gap-0.5 *:size-5 *:text-yellow-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                  />
+                </svg>
+              </div>
+              <!-- card rater -->
+              <h3 class="text-lg">
+                <span class="text-black font-semibold"
+                  >លោកគ្រូ ប្រវត្តិវិទ្យា</span
+                >
+                -
+                <span class="text-gray-600">វិទ្យាល័យចំបក់ </span>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- pricing section -->
+      <section id="pricing" class="bg-light py-16">
+        <!-- pricing container -->
+        <div
+          class="px-4 md:px-4 prefer:px-0 mx-auto max-w-prefer grid grid-cols-1 justify-items-center gap-5"
+        >
+          <span class="small-highlight">តម្លៃនៃសេវាកម្មរបស់ពួកយើង</span>
+          <!-- title -->
+          <h2
+            class="text-black text-center text-xl font-bold text-balance md:text-3xl lg:w-[90%]"
+          >
+            ការចំណាយសម្រាប់ប្រើប្រាស់សេវាកម្មរបស់ពួកយើង
+          </h2>
+          <!-- subtitle -->
+          <h3 class="text-center text-gray-600 text-lg md:text-xl mb-8">
+            អ្នកអាចធ្វើការជ្រើសរើសនូវ គម្រោងណាមួយដែលត្រូវនឹងតម្រូវការរបស់អ្នក
+            ថែមទាំងទទួលបានការប្រើប្រាស់ដោយឥតគិតថ្លៃរយៈពេល 14 ថ្ងៃ៖
+          </h3>
+          <!-- all cards -->
+          <div
+            class="w-full h-max grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
+          >
+            <!-- each card -->
+            <div
+              class="card bg-white rounded-xl p-6 border border-primary/10 shadow-md transition duration-200 hover:shadow-2xl"
+            >
+              <!-- card title -->
+              <h3 class="font-bold text-xl text-black mb-2">កម្រិតធម្មតា</h3>
+              <!-- card subtitle -->
+              <p class="text-gray-600 text-lg line-clamp-2 font-light">
+                ល្អសម្រាប់សាលាដែលមានទំហំតូច និងកិច្ចការរដ្ឋបាលបន្តិចបន្តួច
+              </p>
+              <!-- card price -->
+              <h3
+                class="text-black my-4 font-bold text-4xl relative after:content-['/ខែ'] after:text-lg after:text-gray-500"
+              >
+                $5
+              </h3>
+              <!-- card detail -->
+              <ul
+                class="*:flex *:items-center *:gap-2 [&>li:has(svg)_svg]:size-5 [&>li:has(svg)_svg]:text-primary *:text-lg *:text-gray-600"
+              >
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>Form ជាទម្រង់ឌីជីថលចាប់ពី 20ឡើងទៅ</span>
                 </li>
-
-                <li role="presentation" class="dropdown">
-                  <a
-                    href="javascript:;"
-                    class="dropdown-toggle info-number"
-                    data-toggle="dropdown"
-                    aria-expanded="false"
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
                   >
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6</span>
-                  </a>
-                  <ul
-                    id="menu1"
-                    class="dropdown-menu list-unstyled msg_list"
-                    role="menu"
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>ការបញ្ជូនឯកសារតាមប្រព័ន្ធ online</span>
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
                   >
-                    <li>
-                      <a>
-                        <span class="image"
-                          ><img
-                            src="production/images/img.jpg"
-                            alt="Profile Image"
-                        /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie
-                          makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"
-                          ><img
-                            src="production/images/img.jpg"
-                            alt="Profile Image"
-                        /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie
-                          makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"
-                          ><img
-                            src="production/images/img.jpg"
-                            alt="Profile Image"
-                        /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie
-                          makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"
-                          ><img
-                            src="production/images/img.jpg"
-                            alt="Profile Image"
-                        /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie
-                          makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="text-center">
-                        <a>
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>អាចចុះហត្ថលេខាជាទម្រង់ជីឌីថលបាន</span>
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>អាចរក្សាឯកសារបានបន្តិចបន្តួច (50MB)</span>
                 </li>
               </ul>
-            </nav>
-          </div>
-        </div>
-        <!-- /top navigation -->
-
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <h2 class="content-section_title">ស្ថានភាពអង្គភាព</h2>
-          <!-- top tiles -->
-          <div class="row tile_count">
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path
-                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
-                  />
-                </svg>
-                ចំនួនបុគ្គលិក</span
+              <!-- card button -->
+              <button
+                class="w-full h-max bg-primary mt-4 text-xl cursor-pointer text-white py-2 rounded-lg transition duration-200 hover:bg-primary/80"
               >
-              <div class="count">145</div>
-              <span class="count_bottom"
-                ><i class="green"> 4% </i> កើនពីសប្ដាហ៍មុន</span
-              >
+                ជ្រើសរើស
+              </button>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path
-                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
-                  />
-                </svg>
-                ចំនួនបុគ្គលិក(ស្ត្រី)</span
+            <!-- each card -->
+            <div
+              class="card bg-white rounded-xl p-6 border border-primary/10 shadow-md transition duration-200 hover:shadow-2xl relative after:content-['ពេញនិយមជាងគេ'] after:z-40 after:w-full after:h-max after:text-lg after:font-bold after:top-0 after:absolute after:left-0 after:bg-primary overflow-hidden text-white after:text-center after:py-1 pt-14"
+            >
+              <!-- card title -->
+              <h3 class="font-bold text-xl text-black mb-2">កម្រិតមធ្យម</h3>
+              <!-- card subtitle -->
+              <p class="text-gray-600 text-lg line-clamp-2 font-light">
+                ល្អសម្រាប់សាលាដែលមានទំហំតូច និងកិច្ចការរដ្ឋបាលបន្តិចបន្តួច
+              </p>
+              <!-- card price -->
+              <h3
+                class="text-black my-4 font-bold text-4xl relative after:content-['/ខែ'] after:text-lg after:text-gray-500"
               >
-              <div class="count">100</div>
-              <span class="count_bottom">
-                <i class="green">2%</i> កើនពីសប្ដាហ៍មុន</span
+                $10
+              </h3>
+              <!-- card detail -->
+              <ul
+                class="*:flex *:items-center *:gap-2 [&>li:has(svg)_svg]:size-5 [&>li:has(svg)_svg]:text-primary *:text-lg *:text-gray-600"
               >
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>Form ជាទម្រង់ឌីជីថលឥតដែនកំណត់</span>
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>ការបញ្ជូនឯកសារតាមប្រព័ន្ធ online</span>
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>អាចចុះហត្ថលេខាជាទម្រង់ជីឌីថលបាន</span>
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>អាចរក្សាឯកសារបានឥតដែនកំណត់</span>
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>អាចបញ្ចូន Email ទៅកាន់អ្នកប្រើប្រាស់ផ្សេងៗ</span>
+                </li>
+              </ul>
+              <!-- card button -->
+              <button
+                class="w-full h-max bg-primary mt-4 text-xl cursor-pointer text-white py-2 rounded-lg transition duration-200 hover:bg-primary/80"
+              >
+                ជ្រើសរើស
+              </button>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path
-                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
-                  />
-                </svg>
-                ចំនួនបុគ្គលិក(បុរស)</span
+            <!-- each card -->
+            <div
+              class="card bg-white rounded-xl p-6 border border-primary/10 shadow-md transition duration-200 hover:shadow-2xl"
+            >
+              <!-- card title -->
+              <h3 class="font-bold text-xl text-black mb-2">កម្រិតអាជីវកម្ម</h3>
+              <!-- card subtitle -->
+              <p class="text-gray-600 text-lg line-clamp-2 font-light">
+                ល្អសម្រាប់សាលាដែលមានទំហំធំ ឬតំបន់ភូមិសាស្ត្រណាមួយ
+              </p>
+              <!-- card price -->
+              <h3
+                class="text-black my-4 font-bold text-4xl relative after:content-['/ខែ'] after:text-lg after:text-gray-500"
               >
-              <div class="count">45</div>
-              <span class="count_bottom"
-                ><i class="green">2% </i> កើនពីសប្ដាហ៍មុន</span
+                $25
+              </h3>
+              <!-- card detail -->
+              <ul
+                class="*:flex *:items-center *:gap-2 [&>li:has(svg)_svg]:size-5 [&>li:has(svg)_svg]:text-primary *:text-lg *:text-gray-600"
               >
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path
-                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
-                  />
-                </svg>
-                គ្រូកម្រិតឧត្តម</span
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>Form ជាទម្រង់ឌីជីថលឥតដែនកំណត់</span>
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>ការបញ្ជូនឯកសារតាមប្រព័ន្ធ online</span>
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>អាចចុះហត្ថលេខាជាទម្រង់ជីឌីថលបាន</span>
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>អាចរក្សាឯកសារបានឥតដែនកំណត់</span>
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>អាចបញ្ចូន Email ទៅកាន់អ្នកប្រើប្រាស់ផ្សេងៗ</span>
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>មានសិទ្ធិក្នុងការប្រើប្រាស់ API</span>
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
+                    />
+                  </svg>
+                  <span>ការ support ដែលមានអាទិភាព</span>
+                </li>
+              </ul>
+              <!-- card button -->
+              <button
+                class="w-full h-max bg-primary mt-4 text-xl cursor-pointer text-white py-2 rounded-lg transition duration-200 hover:bg-primary/80"
               >
-              <div class="count">45</div>
-              <span class="count_bottom"
-                ><i class="red">12% </i> ចុះពីសប្ដាហ៍មុន</span
-              >
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path
-                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
-                  />
-                </svg>
-                គ្រូកម្រិតមូលដ្ឋាន</span
-              >
-              <div class="count">45</div>
-              <span class="count_bottom"
-                ><i class="green">34% </i> កើនពីសប្ដាហ៍មុន</span
-              >
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path
-                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
-                  />
-                </svg>
-                គ្រូកម្រិតបឋម</span
-              >
-              <div class="count">00</div>
-              <span class="count_bottom"
-                ><i class="green">0% </i> កើនពីសប្ដាហ៍មុន</span
-              >
-            </div>
-          </div>
-          <!-- /top tiles -->
-
-          <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2 class="table_title">ចំនួនបុគ្គលិករដ្ឋបាល</h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                      <a class="collapse-link"
-                        ><i class="fa fa-chevron-up"></i
-                      ></a>
-                    </li>
-                    <li class="dropdown">
-                      <a
-                        href="#"
-                        class="dropdown-toggle"
-                        data-toggle="dropdown"
-                        role="button"
-                        aria-expanded="false"
-                        ><i class="fa fa-wrench"></i
-                      ></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a></li>
-                        <li><a href="#">Settings 2</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>ប្រភេទបុគ្គលិក</th>
-                        <th>ចំនួន</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>នាយក</td>
-                        <td>01</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>នាយករង</td>
-                        <td>02</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>លេខា</td>
-                        <td>03</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">4</th>
-                        <td>បណ្ណារក្ស</td>
-                        <td>02</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">5</th>
-                        <td>កុំព្យូទ័រ</td>
-                        <td>02</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">6</th>
-                        <td>យុវជន</td>
-                        <td>01</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">7</th>
-                        <td>គណនេយ្យ</td>
-                        <td>01</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">8</th>
-                        <td>បេឡា</td>
-                        <td>01</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">9</th>
-                        <td>បន្ទប់ពិសោធន៍</td>
-                        <td>03</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2 class="table_title">គ្រូកម្រិតឧត្តម</h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                      <a class="collapse-link"
-                        ><i class="fa fa-chevron-up"></i
-                      ></a>
-                    </li>
-                    <li class="dropdown">
-                      <a
-                        href="#"
-                        class="dropdown-toggle"
-                        data-toggle="dropdown"
-                        role="button"
-                        aria-expanded="false"
-                        ><i class="fa fa-wrench"></i
-                      ></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a></li>
-                        <li><a href="#">Settings 2</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>មុខវិជ្ជា</th>
-                        <th>ចំនួន</th>
-                        <th>ស្រី</th>
-                        <th>ចំនួន</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>គណិតវិទ្យា</td>
-                        <td>1</td>
-                        <td>ស្រី</td>
-                        <td>1</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>ភាសាខ្មែរ</td>
-                        <td>2</td>
-                        <td>ស្រី</td>
-                        <td>2</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>ជីវវិទ្យា</td>
-                        <td>3</td>
-                        <td>ស្រី</td>
-                        <td>3</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">4</th>
-                        <td>គីមីវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">5</th>
-                        <td>រូបវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">6</th>
-                        <td>ផែនដីវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">7</th>
-                        <td>ភូមិវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">8</th>
-                        <td>ប្រវត្តិវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">9</th>
-                        <td>ពលរដ្ឋវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2 class="table_title">គ្រូកម្រិតមូលដ្ឋាន</h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                      <a class="collapse-link"
-                        ><i class="fa fa-chevron-up"></i
-                      ></a>
-                    </li>
-                    <li class="dropdown">
-                      <a
-                        href="#"
-                        class="dropdown-toggle"
-                        data-toggle="dropdown"
-                        role="button"
-                        aria-expanded="false"
-                        ><i class="fa fa-wrench"></i
-                      ></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a></li>
-                        <li><a href="#">Settings 2</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>មុខវិជ្ជា</th>
-                        <th>ចំនួន</th>
-                        <th>ស្រី</th>
-                        <th>ចំនួន</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>គណិតវិទ្យា</td>
-                        <td>1</td>
-                        <td>ស្រី</td>
-                        <td>1</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>ភាសាខ្មែរ</td>
-                        <td>2</td>
-                        <td>ស្រី</td>
-                        <td>2</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>ជីវវិទ្យា</td>
-                        <td>3</td>
-                        <td>ស្រី</td>
-                        <td>3</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">4</th>
-                        <td>គីមីវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">5</th>
-                        <td>រូបវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">6</th>
-                        <td>ផែនដីវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">7</th>
-                        <td>ភូមិវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">8</th>
-                        <td>ប្រវត្តិវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">9</th>
-                        <td>ពលរដ្ឋវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2 class="table_title">គ្រូកម្រិតបឋម</h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                      <a class="collapse-link"
-                        ><i class="fa fa-chevron-up"></i
-                      ></a>
-                    </li>
-                    <li class="dropdown">
-                      <a
-                        href="#"
-                        class="dropdown-toggle"
-                        data-toggle="dropdown"
-                        role="button"
-                        aria-expanded="false"
-                        ><i class="fa fa-wrench"></i
-                      ></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a></li>
-                        <li><a href="#">Settings 2</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>មុខវិជ្ជា</th>
-                        <th>ចំនួន</th>
-                        <th>ស្រី</th>
-                        <th>ចំនួន</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>គណិតវិទ្យា</td>
-                        <td>1</td>
-                        <td>ស្រី</td>
-                        <td>1</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>ភាសាខ្មែរ</td>
-                        <td>2</td>
-                        <td>ស្រី</td>
-                        <td>2</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>ជីវវិទ្យា</td>
-                        <td>3</td>
-                        <td>ស្រី</td>
-                        <td>3</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">4</th>
-                        <td>គីមីវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">5</th>
-                        <td>រូបវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">6</th>
-                        <td>ផែនដីវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">7</th>
-                        <td>ភូមិវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">8</th>
-                        <td>ប្រវត្តិវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">9</th>
-                        <td>ពលរដ្ឋវិទ្យា</td>
-                        <td>4</td>
-                        <td>ស្រី</td>
-                        <td>4</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+                ជ្រើសរើស
+              </button>
             </div>
           </div>
         </div>
-        <!-- /page content -->
-
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by
-            <a href="https://colorlib.com">Colorlib</a>
+      </section>
+      <!-- contact section -->
+      <section id="contact" class="bg-white py-16">
+        <!-- pricing container -->
+        <div
+          class="px-4 md:px-4 prefer:px-0 mx-auto max-w-prefer grid grid-cols-1 justify-items-center gap-5"
+        >
+          <span class="small-highlight">ទំនាក់ទំនងមកកាន់ពួកយើង</span>
+          <!-- title -->
+          <h2
+            class="text-black text-center text-xl font-bold text-balance md:text-3xl lg:w-[90%]"
+          >
+            តើអ្នកបានពិចារណារួចរាល់
+            នូវរបៀបក្នុងការរៀបចំកិច្ចការរដ្ឋបាលរបស់អ្នកហើយឬនៅ?
+          </h2>
+          <!-- subtitle -->
+          <h3 class="text-center text-gray-600 text-lg md:text-xl mb-8">
+            អ្នកអាចទំនាក់ទំនងមកកាន់ពួកយើងឥឡូវនេះ តាមរយៈព័ត៌មានខាងក្រោមនេះ ៖
+          </h3>
+          <!-- all cards -->
+          <div
+            class="w-full h-max grid grid-cols-1 md:grid-cols-[1fr_1.65fr] gap-4 md:gap-6 lg:gap-8"
+          >
+            <!-- left side -->
+            <div class="flex flex-col gap-4 mx-auto md:mx-0">
+              <!-- card title -->
+              <h3 class="font-bold text-2xl text-black/80">
+                ព័ត៌មានសម្រាប់ទំនាក់ទំនង
+              </h3>
+              <!-- small contact card -->
+              <div class="flex flex-row gap-2 items-start">
+                <!-- card icon -->
+                <div class="shrink-0 *:size-6 *:text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zM20 8l-7.475 4.675q-.125.075-.262.113t-.263.037t-.262-.037t-.263-.113L4 8v10h16zm-8 3l8-5H4zM4 8v.25v-1.475v.025V6v.8v-.012V8.25zv10z"
+                    />
+                  </svg>
+                </div>
+                <!-- card info -->
+                <div class="flex flex-col gap-1">
+                  <h4 class="text-lg text-black leading-tight">តាមរយៈ Email</h4>
+                  <a href="" class="text-lg text-gray-600 font-normal"
+                    >contact@homepage.com</a
+                  >
+                </div>
+              </div>
+              <!-- small contact card -->
+              <div class="flex flex-row gap-2 items-start">
+                <!-- card icon -->
+                <div class="shrink-0 *:size-6 *:text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M19.95 21q-3.225 0-6.287-1.438t-5.425-3.8q-2.363-2.362-3.8-5.425T3 4.05q0-.45.3-.75t.75-.3H8.1q.35 0 .625.225t.325.575l.65 3.5q.05.35-.013.638T9.4 8.45L6.975 10.9q1.05 1.8 2.638 3.375T13.1 17l2.35-2.35q.225-.225.588-.338t.712-.062l3.45.7q.35.075.575.338T21 15.9v4.05q0 .45-.3.75t-.75.3ZM6.025 9l1.65-1.65L7.25 5H5.025q.125 1.025.35 2.025T6.025 9ZM19 18.95v-2.2l-2.35-.475l-1.675 1.675q.975.425 1.987.675T19 18.95Zm-4-1.025ZM6.025 9Z"
+                    />
+                  </svg>
+                </div>
+                <!-- card info -->
+                <div class="flex flex-col gap-1">
+                  <h4 class="text-lg text-black leading-tight">
+                    តាមរយៈលេខទូរសព្ទ
+                  </h4>
+                  <a href="" class="text-lg text-gray-600 font-normal"
+                    >(855) 123 456 789</a
+                  >
+                </div>
+              </div>
+              <!-- small contact card -->
+              <div class="flex flex-row gap-2 items-start">
+                <!-- card icon -->
+                <div class="shrink-0 *:size-6 *:text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M12 12q.825 0 1.413-.587T14 10t-.587-1.412T12 8t-1.412.588T10 10t.588 1.413T12 12m0 7.35q3.05-2.8 4.525-5.087T18 10.2q0-2.725-1.737-4.462T12 4T7.738 5.738T6 10.2q0 1.775 1.475 4.063T12 19.35M12 22q-4.025-3.425-6.012-6.362T4 10.2q0-3.75 2.413-5.975T12 2t5.588 2.225T20 10.2q0 2.5-1.987 5.438T12 22m0-12"
+                    />
+                  </svg>
+                </div>
+                <!-- card info -->
+                <div class="flex flex-col gap-1">
+                  <h4 class="text-lg text-black leading-tight">
+                    តាមរយៈអាសយដ្ឋាន
+                  </h4>
+                  <a href="" class="text-lg text-gray-600 font-normal"
+                    >ផ្ទះលេខ123, <br />
+                    សង្កាត់ភ្នំពេញថ្មី, <br />ខណ្ឌដង្កោ, <br />
+                    រាជធានីភ្នំពេញ</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- right side -->
+            <div
+              class="bg-light p-4 md:p-6 lg:p-8 rounded-xl border border-primary/10 shadow"
+            >
+              <!-- form title -->
+              <h3
+                class="text-center md:text-left font-bold text-2xl text-black/80 mb-4 md:mb-6"
+              >
+                ផ្ញើសារមកកាន់ពួកយើង
+              </h3>
+              <!-- form body -->
+              <form
+                method="POST"
+                class="w-full h-max p-0 m-0 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6"
+              >
+                <!-- form row -->
+                <div
+                  class="input-row flex flex-col gap-1 col-span-2 lg:col-span-1"
+                >
+                  <label for="name" class="text-lg">ឈ្មោះរបស់អ្នក</label>
+                  <input
+                    class="bg-white py-2 px-3 rounded-lg border border-primary/10 text-black text-lg focus:outline-primary"
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="ឧ. សុខ សុវណ្ណ"
+                    required
+                  />
+                </div>
+                <!-- form row -->
+                <div
+                  class="input-row flex flex-col gap-1 col-span-2 lg:col-span-1"
+                >
+                  <label for="email" class="text-lg">Email របស់អ្នក</label>
+                  <input
+                    class="bg-white py-2 px-3 rounded-lg border border-primary/10 text-black text-lg focus:outline-primary"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="ឧ. seusamith@gmail.com"
+                    required
+                  />
+                </div>
+                <!-- form row -->
+                <div class="input-row flex flex-col gap-1 col-span-2">
+                  <label for="school" class="text-lg">សាលារបស់អ្នក</label>
+                  <input
+                    class="bg-white py-2 px-3 rounded-lg border border-primary/10 text-black text-lg focus:outline-primary"
+                    type="text"
+                    name="school"
+                    id="school"
+                    placeholder="ឧ. វិទ្យាល័យកំពង់ស្ពឺ"
+                    required
+                  />
+                </div>
+                <!-- form row -->
+                <div class="input-row flex flex-col gap-1 col-span-2">
+                  <label for="message" class="text-lg">អត្ថបទសារ</label>
+                  <textarea
+                    class="resize-y min-h-28 bg-white py-2 px-3 rounded-lg border border-primary/10 text-black text-lg focus:outline-primary"
+                    name="message"
+                    id="message"
+                    placeholder="ឧ. ប្រាប់ពួកយើងអំពីអ្វីដែលអ្នកត្រូវការ..."
+                    required
+                  ></textarea>
+                </div>
+                <!-- form row -->
+                <div class="input-row flex flex-col gap-1 col-span-2">
+                  <button
+                    class="font-bold text-white bg-primary py-2 px-3 rounded-lg border border-primary/10 text-lg focus:outline-primary cursor-pointer hover:bg-primary/80 transition duration-200"
+                  >
+                    ផ្ញើសារ
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
-      </div>
-    </div>
-
-    <!-- jQuery -->
-    <script src="./vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="./vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="./vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="./vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="./vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="./vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="./vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="./vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="./vendors/Flot/jquery.flot.js"></script>
-    <script src="./vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="./vendors/Flot/jquery.flot.time.js"></script>
-    <script src="./vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="./vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="./vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="./vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="./vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="./vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="./vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="./vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="./vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="./vendors/moment/min/moment.min.js"></script>
-    <script src="./vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
-    <!-- Custom Theme Scripts -->
-    <script src="./build/js/custom.min.js"></script>
+        </div>
+      </section>
+      <!-- footer section -->
+      <footer class="bg-dark py-8">
+        <div
+          class="px-4 md:px-4 prefer:px-0 mx-auto max-w-prefer flex flex-col gap-4 md:flex-row md:justify-between items-center"
+        >
+          <h3 class="text-white">
+            &copy; 2025 រក្សាសិទ្ធិគ្រប់យ៉ាងដោយ
+            <span class="text-primary">HomePage</span>.
+          </h3>
+          <ul class="flex items-center gap-4 md:gap-6 text-white">
+            <li><a href="#features">លក្ខណៈពិសេស</a></li>
+            <li><a href="#testimonials">ការគាំទ្រ</a></li>
+            <li><a href="#pricing">តម្លៃ</a></li>
+            <li><a href="#contact">ទំនាក់ទំនង</a></li>
+          </ul>
+        </div>
+      </footer>
+    </main>
   </body>
 </html>
