@@ -15,7 +15,6 @@
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
-    --container-3xl: 48rem;
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
@@ -454,9 +453,6 @@
     color: var(--color-primary);
     border-radius: 3.40282e38px;
   }
-  .w-3xl {
-    width: var(--container-3xl);
-  }
   .w-full {
     width: 100%;
   }
@@ -526,8 +522,8 @@
   .overflow-hidden {
     overflow: hidden;
   }
-  .overflow-x-hidden {
-    overflow-x: hidden;
+  .\!overflow-x-hidden {
+    overflow-x: hidden !important;
   }
   .rounded-lg {
     border-radius: var(--radius-lg);
