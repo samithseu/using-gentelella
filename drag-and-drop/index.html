@@ -16,10 +16,15 @@
     />
     <title>Drag and Drop into Table</title>
     <style>
-      td:has(.drag-item) .drag-item {
-        font-size: 0.7rem;
-        padding-inline: 0.2em;
-        padding-block: 0.1em;
+      td:has(.drag-item) {
+        & .drag-item {
+          font-size: 0.7rem;
+          padding-inline: 0.2em;
+          padding-block: 0.1em;
+          &:not(:last-child) {
+            margin-block-end: 0.25em;
+          }
+        }
       }
       .drag-item {
         padding-inline: 0.75em;
@@ -45,10 +50,14 @@
       </button>
       <p class="text-red-500 font-bold">Double click ដើម្បីលុប</p>
       <div
-        class="draggable-list w-max grid grid-cols-1 md:grid-col-2 lg:grid-cols-5 gap-2"
-      ></div>
-      <div id="dataTable">
-        <table id="mainTable"></table>
+        class="flex flex-col items-center gap-2 lg:flex-row lg:justify-center lg:items-start"
+      >
+        <div
+          class="draggable-list w-max grid grid-cols-1 gap-2 md:grid-col-2"
+        ></div>
+        <div id="dataTable" class="overflow-x-auto">
+          <table id="mainTable"></table>
+        </div>
       </div>
       <pre
         class="absolute right-0 top-0 text-sm p-4 rounded-lg h-[40%] w-[22%] overflow-y-auto text-white"

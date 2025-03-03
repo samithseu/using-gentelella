@@ -21,6 +21,8 @@ let allColumns = [
   "Saturday",
 ];
 let allRows = ["7-8", "8-9", "9-10", "10-11"];
+let allowMultipleValueInOneCell = false;
+
 // END STATE VARIABLES-------------------------
 
 // generate table data function
@@ -71,7 +73,7 @@ const renderTable = () => {
 
   const table = document.createElement("table");
   table.className =
-    "table-auto w-full [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:w-[120px] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1";
+    "table-fixed  [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:w-[120px] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1";
 
   // Create header row
   const thead = document.createElement("thead");
@@ -109,9 +111,14 @@ const renderTable = () => {
       td.dataset.rowIndex = rowIndex;
       td.dataset.cellIndex = cellIndex;
 
-      // Allow dropping by preventing default.
+      // Allow dropping by preventing default only for empty cells
       td.addEventListener("dragover", (e) => {
-        e.preventDefault();
+        if (
+          tableData[rowIndex].cells[cellIndex].items.length === 0 ||
+          allowMultipleValueInOneCell
+        ) {
+          e.preventDefault();
+        }
       });
 
       // On drop, update the data models.
