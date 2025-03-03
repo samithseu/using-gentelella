@@ -1,11 +1,14 @@
 let listData = [
-  { id: 1, text: "ភាសាខ្មែរ" },
-  { id: 2, text: "គណិតវិទ្យា" },
-  { id: 3, text: "ប្រវត្តិវិទ្យា" },
-  { id: 4, text: "គីមីវិទ្យា" },
-  { id: 5, text: "រូបវិទ្យា" },
-  { id: 6, text: "ផែនដីវិទ្យា" },
-  { id: 7, text: "ព័ត៌មានវិទ្យា" },
+  { id: 1, text: "លោកគ្រូ ក ភាសាខ្មែរ" },
+  { id: 2, text: "លោកគ្រូ ខ គណិតវិទ្យា" },
+  { id: 3, text: "លោកគ្រូ គ ប្រវត្តិវិទ្យា" },
+  { id: 4, text: "លោកគ្រូ ឃ គីមីវិទ្យា" },
+  { id: 5, text: "លោកគ្រូ ង រូបវិទ្យា" },
+  { id: 6, text: "លោកគ្រូ ច ផែនដីវិទ្យា" },
+  { id: 7, text: "លោកគ្រូ ឆ ព័ត៌មានវិទ្យា" },
+  { id: 8, text: "លោកគ្រូ ជ ពលរដ្ឋវិទ្យា" },
+  { id: 9, text: "លោកគ្រូ ឈ ភូមិវិទ្យា" },
+  { id: 10, text: "លោកគ្រូ ញ ជីវវិទ្យា" },
 ];
 
 let tableData = [
@@ -190,7 +193,9 @@ renderTable();
 
 // gatherTableData to a button click if needed.
 const gatherTableData = () => {
-  console.log(JSON.stringify(tableData, null, 2));
+  const result = document.querySelector("#result");
+  result.innerText = "";
+  result.innerText = JSON.stringify(tableData, null, 2);
 };
 document
   .querySelector("#gatherDataButton")
