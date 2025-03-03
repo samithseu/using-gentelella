@@ -1,3 +1,4 @@
+// STATE VARIABLES-------------------------
 let listData = [
   { id: 1, text: "លោកគ្រូ ក ភាសាខ្មែរ" },
   { id: 2, text: "លោកគ្រូ ខ គណិតវិទ្យា" },
@@ -11,55 +12,40 @@ let listData = [
   { id: 10, text: "លោកគ្រូ ញ ជីវវិទ្យា" },
 ];
 
-let tableData = [
-  {
-    id: "7-8",
-    cells: [
-      { id: "Monday", items: [] },
-      { id: "Tuesday", items: [] },
-      { id: "Wednesday", items: [] },
-      { id: "Thursday", items: [] },
-      { id: "Friday", items: [] },
-      { id: "Saturday", items: [] },
-    ],
-  },
-  {
-    id: "8-9",
-    cells: [
-      { id: "Monday", items: [] },
-      { id: "Tuesday", items: [] },
-      { id: "Wednesday", items: [] },
-      { id: "Thursday", items: [] },
-      { id: "Friday", items: [] },
-      { id: "Saturday", items: [] },
-    ],
-  },
-  {
-    id: "9-10",
-    cells: [
-      { id: "Monday", items: [] },
-      { id: "Tuesday", items: [] },
-      { id: "Wednesday", items: [] },
-      { id: "Thursday", items: [] },
-      { id: "Friday", items: [] },
-      { id: "Saturday", items: [] },
-    ],
-  },
-  {
-    id: "10-11",
-    cells: [
-      { id: "Monday", items: [] },
-      { id: "Tuesday", items: [] },
-      { id: "Wednesday", items: [] },
-      { id: "Thursday", items: [] },
-      { id: "Friday", items: [] },
-      { id: "Saturday", items: [] },
-    ],
-  },
+let allColumns = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
 ];
+let allRows = ["7-8", "8-9", "9-10", "10-11"];
+// END STATE VARIABLES-------------------------
 
+// generate table data function
+const generateTableData = () => {
+  let tableData = [];
+  allRows.forEach((row) => {
+    let rowData = {
+      id: row,
+      cells: [],
+    };
+    allColumns.forEach((column) => {
+      rowData.cells.push({
+        id: column,
+        items: [],
+      });
+    });
+    tableData.push(rowData);
+  });
+  return tableData;
+};
+
+let tableData = generateTableData();
 let draggedItem = null;
 
+// render options in list
 const renderList = () => {
   const listContainer = document.querySelector(".draggable-list");
   listContainer.innerHTML = ""; // clear previous content
@@ -78,6 +64,7 @@ const renderList = () => {
   });
 };
 
+// render value in table
 const renderTable = () => {
   const tableContainer = document.querySelector("#dataTable");
   tableContainer.innerHTML = ""; // clear previous content
