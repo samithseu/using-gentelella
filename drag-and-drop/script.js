@@ -118,7 +118,13 @@ const renderTable = () => {
           allowMultipleValueInOneCell
         ) {
           e.preventDefault();
+          e.target.classList.add("bg-green-500/30");
         }
+      });
+
+      // remove bg-green-500/10 when drag over
+      td.addEventListener("dragleave", (e) => {
+        e.target.classList.remove("bg-green-500/30");
       });
 
       // On drop, update the data models.
