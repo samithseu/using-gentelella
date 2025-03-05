@@ -1,19 +1,27 @@
-/* FONTS */
-
-/* setting local fonts */
+/* SETTINGS LOCAL FONTS */
+/* auto weight--------- */
 @font-face {
-  font-family: "Kantumruy Pro";
+  font-family: "KantumruyProWeight";
   src: url("../fonts/KantumruyPro-VariableFont_wght.ttf");
-  font-weight: 400 700;
+  font-weight: 400 700; /* weight range */
 }
 @font-face {
+  font-family: "RobotoWeight";
+  src: url("../fonts/Roboto-VariableFont_wght.ttf");
+  font-weight: 300 700; /* weight range */
+}
+/* -------------------------------------- */
+
+/* exact weight--------- */
+/* KHMER */
+@font-face {
   font-family: "KantumruyPro";
-  src: url("../fonts/kantumruy-pro-khmer-400-normal.ttf");
+  src: url("../fonts/KantumruyPro-VariableFont_wght.ttf");
   font-weight: 400;
 }
 @font-face {
   font-family: "KantumruyProBold";
-  src: url("../fonts/kantumruy-pro-khmer-700-normal.ttf");
+  src: url("../fonts/KantumruyPro-VariableFont_wght.ttf");
   font-weight: 700;
 }
 @font-face {
@@ -21,27 +29,23 @@
   src: url("../fonts/KhmerOSMuollight.ttf");
   font-weight: 900;
 }
-
-@font-face {
-  font-family: "RobotoWeight";
-  src: url("../fonts/Roboto-VariableFont_wght.ttf");
-  font-weight: 300 700;
-}
+/* ENGLISH */
 @font-face {
   font-family: "Roboto";
-  src: url("../fonts/Roboto-Light.ttf");
+  src: url("../fonts/Roboto-VariableFont_wght.ttf");
   font-weight: 300;
 }
 @font-face {
   font-family: "RobotoMedium";
-  src: url("../fonts/Roboto-Medium.ttf");
+  src: url("../fonts/Roboto-VariableFont_wght.ttf");
   font-weight: 500;
 }
 @font-face {
   font-family: "RobotoBold";
-  src: url("../fonts/Roboto-Bold.ttf");
+  src: url("../fonts/Roboto-VariableFont_wght.ttf");
   font-weight: 700;
 }
+/* -------------------------------------- */
 
 /* fonts variables */
 :root {
@@ -49,7 +53,7 @@
   --title-ff: var(--en-title-ff), var(--kh-title-ff);
   --subtitle-ff: var(--en-subtitle-ff), var(--kh-subtitle-ff);
   --paragraph-ff: var(--en-paragraph-ff), var(--kh-paragraph-ff);
-  --variable-ff: "RobotoWeight", "Kantumruy Pro";
+  --variable-ff: "RobotoWeight", "KantumruyProWeight";
 
   /* ENGLISH */
   --en-title-ff: "RobotoBold";
