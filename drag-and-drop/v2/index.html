@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Drag and Drop version 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="flex flex-col gap-4 items-center justify-center w-screen min-h-dvh"
+    >
+      <button
+        class="px-4 py-1 rounded-lg text-lg font-bold border hover:bg-green-700 transition-all duration-200 hover:scale-95"
+        id="gatherDataButton"
+      >
+        Get Data
+      </button>
+      <p class="text-red-500 font-bold">Double click ដើម្បីលុប</p>
+      <div
+        class="flex flex-col items-center gap-2 lg:flex-row lg:justify-center lg:items-start"
+      >
+        <div
+          class="draggable-list w-max grid grid-cols-1 gap-2 md:grid-cols-2 *:px-3 *:py-1 *:border-green-500 *:border *:rounded-md"
+        ></div>
+        <div
+          id="dataTable"
+          class="overflow-x-auto max-w-xl md:max-w-2xl w-full"
+        >
+          <table class="max-w-5xl table-fixed w-full" id="mainTable"></table>
+        </div>
+      </div>
+      <pre
+        class="absolute right-0 top-0 text-sm p-4 rounded-lg h-[40%] w-[22%] overflow-y-auto text-white"
+        id="result"
+      ></pre>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
