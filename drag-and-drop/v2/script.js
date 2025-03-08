@@ -164,13 +164,47 @@ const renderTable = () => {
         td.dataset.dayIndex = dayIndex;
         td.dataset.subjectIndex = subjectIndex;
 
-        // Allow drop only if cell is empty (or if multiples allowed).
+        // Allow drop only if cell is empty and not existed in other classes
         td.addEventListener("dragover", (e) => {
-          if (allowMultipleValueInOneCell || cell.subject == null) {
-            e.preventDefault();
-            td.classList.add("bg-green-500/30");
+          // Only allow dropping if either multiple values are allowed or the cell is empty.
+          if (!(allowMultipleValueInOneCell || cell.subject == null)) {
+            return;
           }
+
+          // If dragging an item from the table with shift key pressed,
+          // perform duplicate check across all other rows at the same day and subject index.
+          if (draggedItem && draggedItem.source === "table" && e.shiftKey) {
+            const currentClassIndex = parseInt(td.dataset.classIndex);
+            const currentDayIndex = parseInt(td.dataset.dayIndex);
+            const currentSubjectIndex = parseInt(td.dataset.subjectIndex);
+            let duplicateFound = false;
+
+            tableData.forEach((row, idx) => {
+              if (idx !== currentClassIndex) {
+                const cellData =
+                  row.days[currentDayIndex]?.subjects[currentSubjectIndex];
+                if (
+                  cellData &&
+                  cellData.subject &&
+                  cellData.subject.id === draggedItem.id
+                ) {
+                  duplicateFound = true;
+                }
+              }
+            });
+
+            // If a duplicate is found, do not allow dropping.
+            if (duplicateFound) {
+              td.classList.remove("bg-green-500/30");
+              return;
+            }
+          }
+
+          // If everything is ok, allow the drop.
+          e.preventDefault();
+          td.classList.add("bg-green-500/30");
         });
+
         td.addEventListener("dragleave", (e) => {
           td.classList.remove("bg-green-500/30");
         });
@@ -187,12 +221,35 @@ const renderTable = () => {
             if (draggedItem.source === "list") {
               listData.splice(draggedItem.listIndex, 1);
             } else if (draggedItem.source === "table") {
-              // if shift key is not pressed, remove from table,
+              // if shift key is not pressed, change pos in table,
               // else duplicate item
               if (!e.shiftKey) {
                 const { classIdx, dayIdx, subjectIdx } = draggedItem;
                 tableData[classIdx].days[dayIdx].subjects[subjectIdx].subject =
                   null;
+              } else {
+                // Check if the same subject (by id) is already present in any other class (row)
+                // at the same day (group) and subject column (subjectIndex)
+                let duplicateFound = false;
+                tableData.forEach((row, idx) => {
+                  if (idx !== classIndex) {
+                    // Make sure the day exists and check the subject at the same subjectIndex
+                    if (
+                      row.days[dayIndex] &&
+                      row.days[dayIndex].subjects[subjectIndex].subject &&
+                      row.days[dayIndex].subjects[subjectIndex].subject.id ===
+                        draggedItem.id
+                    ) {
+                      duplicateFound = true;
+                    }
+                  }
+                });
+                if (duplicateFound) {
+                  alert(
+                    "A teacher cannot teach 2 different classes at the same time."
+                  );
+                  return; // exit without adding the duplicate
+                }
               }
             }
             // Add the dragged item to the destination cell.
@@ -264,3 +321,20 @@ const gatherTableData = () => {
 document
   .querySelector("#gatherDataButton")
   ?.addEventListener("click", gatherTableData);
+
+// check if duplicate exists in other class at same (day & subject) index
+const isDuplicateFound = (cIdx, dIdx, sIdx) => {
+  let duplicateFound = false;
+  tableData.forEach((row, idx) => {
+    if (idx !== cIdx) {
+      if (
+        row.days[dIdx] &&
+        row.days[dIdx].subjects[sIdx].subject &&
+        row.days[dIdx].subjects[sIdx].subject.id === draggedItem.id
+      ) {
+        duplicateFound = true;
+      }
+    }
+  });
+  return duplicateFound;
+};
