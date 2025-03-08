@@ -118,15 +118,19 @@ const renderTable = () => {
   tableContainer.innerHTML = "";
   const table = document.createElement("table");
   table.className =
-    "table-fixed  [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:min-w-[30px]  md:[&_th]:min-w-[60px]  [&_td]:text-lg [&_td]:px-2 [&_td]:py-1";
+    "table-fixed [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:min-w-[30px] md:[&_th]:min-w-[60px] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1";
 
   // Create table header.
   const thead = document.createElement("thead");
   // First header row: group names.
   const headerRow1 = document.createElement("tr");
   headerRow1.innerHTML = `<th rowspan="2">ថ្នាក់/ថ្ងៃ</th>`;
-  allGroups.forEach((group) => {
-    headerRow1.innerHTML += `<th colspan="${allColumns.length}" class="text-green-500 py-1">${group}</th>`;
+  allGroups.forEach((group, idx) => {
+    headerRow1.innerHTML += `<th colspan="${
+      allColumns.length
+    }" class="bg-black sticky top-0 left-0 text-green-500 py-1 z-[${
+      (idx + 1) * 10
+    }] before:absolute before:content-[''] before:z-1 before:inset-[0] before:border before:border-white/50">${group}</th>`;
   });
   // Second header row: columns.
   const headerRow2 = document.createElement("tr");
@@ -147,6 +151,8 @@ const renderTable = () => {
     // Row label cell.
     const tdLabel = document.createElement("td");
     tdLabel.innerText = row.id;
+    tdLabel.className =
+      "sticky top-0 left-0 z-20 isolate before:absolute before:content-[''] before:z-1 before:inset-[0] before:border before:border-green-500/30 bg-black";
     tr.appendChild(tdLabel);
 
     // For each group (day).
