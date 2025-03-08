@@ -177,24 +177,15 @@ const renderTable = () => {
             const currentClassIndex = parseInt(td.dataset.classIndex);
             const currentDayIndex = parseInt(td.dataset.dayIndex);
             const currentSubjectIndex = parseInt(td.dataset.subjectIndex);
-            let duplicateFound = false;
-
-            tableData.forEach((row, idx) => {
-              if (idx !== currentClassIndex) {
-                const cellData =
-                  row.days[currentDayIndex]?.subjects[currentSubjectIndex];
-                if (
-                  cellData &&
-                  cellData.subject &&
-                  cellData.subject.id === draggedItem.id
-                ) {
-                  duplicateFound = true;
-                }
-              }
-            });
 
             // If a duplicate is found, do not allow dropping.
-            if (duplicateFound) {
+            if (
+              isDuplicateFound(
+                currentClassIndex,
+                currentDayIndex,
+                currentSubjectIndex
+              )
+            ) {
               td.classList.remove("bg-green-500/30");
               return;
             }
@@ -230,21 +221,7 @@ const renderTable = () => {
               } else {
                 // Check if the same subject (by id) is already present in any other class (row)
                 // at the same day (group) and subject column (subjectIndex)
-                let duplicateFound = false;
-                tableData.forEach((row, idx) => {
-                  if (idx !== classIndex) {
-                    // Make sure the day exists and check the subject at the same subjectIndex
-                    if (
-                      row.days[dayIndex] &&
-                      row.days[dayIndex].subjects[subjectIndex].subject &&
-                      row.days[dayIndex].subjects[subjectIndex].subject.id ===
-                        draggedItem.id
-                    ) {
-                      duplicateFound = true;
-                    }
-                  }
-                });
-                if (duplicateFound) {
+                if (isDuplicateFound(classIndex, dayIndex, subjectIndex)) {
                   alert(
                     "A teacher cannot teach 2 different classes at the same time."
                   );
