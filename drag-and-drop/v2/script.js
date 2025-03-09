@@ -118,7 +118,7 @@ const renderTable = () => {
   tableContainer.innerHTML = "";
   const table = document.createElement("table");
   table.className =
-    "table-fixed [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:min-w-[30px] md:[&_th]:min-w-[68px] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1 [&_td:has(h5)_h5]:text-sm [&_td:has(h5)_h5]:text-center [&_td:has(h5)_h5]:text-green-500 [&_td:has(h5)_h5]:cursor-grab";
+    "table-fixed [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:min-w-[30px] md:[&_th]:min-w-[42px] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1 [&_td:has(h5)_h5]:text-sm [&_td:has(h5)_h5]:text-center [&_td:has(h5)_h5]:text-green-500 [&_td:has(h5)_h5]:cursor-grab";
 
   // Create table header.
   const thead = document.createElement("thead");
@@ -136,7 +136,7 @@ const renderTable = () => {
   const headerRow2 = document.createElement("tr");
   allGroups.forEach(() => {
     allColumns.forEach((col) => {
-      headerRow2.innerHTML += `<th>${col}</th>`;
+      headerRow2.innerHTML += `<th class="text-sm -rotate-[65deg] py-4">${col}</th>`;
     });
   });
   thead.appendChild(headerRow1);
