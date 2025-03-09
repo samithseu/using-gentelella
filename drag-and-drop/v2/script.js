@@ -118,7 +118,7 @@ const renderTable = () => {
   tableContainer.innerHTML = "";
   const table = document.createElement("table");
   table.className =
-    "table-fixed [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:min-w-[30px] md:[&_th]:min-w-[60px] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1";
+    "table-fixed [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:min-w-[30px] md:[&_th]:min-w-[68px] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1 [&_td:has(h5)_h5]:text-sm [&_td:has(h5)_h5]:text-center [&_td:has(h5)_h5]:text-green-500";
 
   // Create table header.
   const thead = document.createElement("thead");
