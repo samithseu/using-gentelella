@@ -190,7 +190,7 @@ const renderTable = () => {
           } else if (draggedItem && draggedItem.source === "table") {
             // without shift key pressed
             if (
-              isDuplicateFound(
+              hasMoreThanOneID(
                 currentClassIndex,
                 currentDayIndex,
                 currentSubjectIndex
@@ -225,7 +225,7 @@ const renderTable = () => {
             // if shift key is not pressed, change pos in table,
             // else duplicate item
             if (!e.shiftKey) {
-              if (isDuplicateFound(classIndex, dayIndex, subjectIndex)) {
+              if (hasMoreThanOneID(classIndex, dayIndex, subjectIndex)) {
                 alert(
                   "A teacher cannot teach 2 different classes at the same time."
                 );
@@ -335,6 +335,27 @@ const isDuplicateFound = (cIdx, dIdx, sIdx) => {
     }
   });
   return duplicateFound;
+};
+
+// check if the id exists in other class at same (day & subject) index more than once
+const hasMoreThanOneID = (cIdx, dIdx, sIdx) => {
+  let hasMoreThanOne = false;
+  let counter = 0;
+  tableData.forEach((row, idx) => {
+    if (idx !== cIdx) {
+      if (
+        row.days[dIdx] &&
+        row.days[dIdx].subjects[sIdx].subject &&
+        row.days[dIdx].subjects[sIdx].subject.id === draggedItem.id
+      ) {
+        counter++;
+      }
+    }
+  });
+  if (counter > 1) {
+    hasMoreThanOne = true;
+  }
+  return hasMoreThanOne;
 };
 
 // check if duplicate exists in the table
