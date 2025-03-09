@@ -170,15 +170,25 @@ const renderTable = () => {
           if (!(allowMultipleValueInOneCell || cell.subject == null)) {
             return;
           }
-
-          // If dragging an item from the table with shift key pressed,
-          // perform duplicate check across all other rows at the same day and subject index.
+          // If user is duplicating, check if a a teacher
+          // is already teaching another class at the same time.
+          const currentClassIndex = parseInt(td.dataset.classIndex);
+          const currentDayIndex = parseInt(td.dataset.dayIndex);
+          const currentSubjectIndex = parseInt(td.dataset.subjectIndex);
           if (draggedItem && draggedItem.source === "table" && e.shiftKey) {
-            const currentClassIndex = parseInt(td.dataset.classIndex);
-            const currentDayIndex = parseInt(td.dataset.dayIndex);
-            const currentSubjectIndex = parseInt(td.dataset.subjectIndex);
-
-            // If a duplicate is found, do not allow dropping.
+            // with shift key pressed
+            if (
+              isDuplicateFound(
+                currentClassIndex,
+                currentDayIndex,
+                currentSubjectIndex
+              )
+            ) {
+              td.classList.remove("bg-green-500/30");
+              return;
+            }
+          } else if (draggedItem && draggedItem.source === "table") {
+            // without shift key pressed
             if (
               isDuplicateFound(
                 currentClassIndex,
@@ -196,6 +206,7 @@ const renderTable = () => {
           td.classList.add("bg-green-500/30");
         });
 
+        // remove bg-green-500/30 when drag over
         td.addEventListener("dragleave", (e) => {
           td.classList.remove("bg-green-500/30");
         });
@@ -207,41 +218,45 @@ const renderTable = () => {
           const dayIndex = parseInt(td.dataset.dayIndex);
           const subjectIndex = parseInt(td.dataset.subjectIndex);
 
-          if (draggedItem) {
-            // Remove the dragged item from its previous location.
-            if (draggedItem.source === "list") {
-              listData.splice(draggedItem.listIndex, 1);
-            } else if (draggedItem.source === "table") {
-              // if shift key is not pressed, change pos in table,
-              // else duplicate item
-              if (!e.shiftKey) {
+          // Remove the dragged item from its previous location.
+          if (draggedItem && draggedItem.source === "list") {
+            listData.splice(draggedItem.listIndex, 1);
+          } else if (draggedItem && draggedItem.source === "table") {
+            // if shift key is not pressed, change pos in table,
+            // else duplicate item
+            if (!e.shiftKey) {
+              if (isDuplicateFound(classIndex, dayIndex, subjectIndex)) {
+                alert(
+                  "A teacher cannot teach 2 different classes at the same time."
+                );
+                return; // exit without adding the duplicate
+              } else {
                 const { classIdx, dayIdx, subjectIdx } = draggedItem;
                 tableData[classIdx].days[dayIdx].subjects[subjectIdx].subject =
                   null;
-              } else {
-                // Check if the same subject (by id) is already present in any other class (row)
-                // at the same day (group) and subject column (subjectIndex)
-                if (isDuplicateFound(classIndex, dayIndex, subjectIndex)) {
-                  alert(
-                    "A teacher cannot teach 2 different classes at the same time."
-                  );
-                  return; // exit without adding the duplicate
-                }
+              }
+            } else {
+              // Check if the same subject (by id) is already present in any other class (row)
+              // at the same day (group) and subject column (subjectIndex)
+              if (isDuplicateFound(classIndex, dayIndex, subjectIndex)) {
+                alert(
+                  "A teacher cannot teach 2 different classes at the same time."
+                );
+                return; // exit without adding the duplicate
               }
             }
-            // Add the dragged item to the destination cell.
-            tableData[classIndex].days[dayIndex].subjects[
-              subjectIndex
-            ].subject = {
+          }
+          // Add the dragged item to the destination cell.
+          tableData[classIndex].days[dayIndex].subjects[subjectIndex].subject =
+            {
               id: draggedItem.id,
               text: draggedItem.text,
             };
 
-            // Re-render the list and table.
-            renderList();
-            renderTable();
-            draggedItem = null;
-          }
+          // Re-render the list and table.
+          renderList();
+          renderTable();
+          draggedItem = null;
         });
 
         // If a subject exists in this cell, render it.
@@ -265,13 +280,19 @@ const renderTable = () => {
           });
           // Double-click to remove the item from the cell and put it back to the list.
           h5.addEventListener("dblclick", (e) => {
+            // Remove subject from the current cell.
             tableData[classIndex].days[dayIndex].subjects[
               subjectIndex
             ].subject = null;
-            listData.push({
-              id: e.target.dataset.itemId,
-              text: e.target.innerText,
-            });
+            // Convert the subject id to number for proper comparison.
+            const currentSubjectId = parseInt(e.target.dataset.itemId, 10);
+            // Only add back to the list if no duplicate is found.
+            if (!isDuplicateExists(currentSubjectId)) {
+              listData.push({
+                id: currentSubjectId,
+                text: e.target.innerText,
+              });
+            }
             renderList();
             renderTable();
           });
@@ -314,4 +335,19 @@ const isDuplicateFound = (cIdx, dIdx, sIdx) => {
     }
   });
   return duplicateFound;
+};
+
+// check if duplicate exists in the table
+const isDuplicateExists = (id) => {
+  let result = false;
+  tableData.forEach((row) => {
+    row.days.forEach((day) => {
+      day.subjects.forEach((cell) => {
+        if (cell.subject && cell.subject.id === id) {
+          result = true;
+        }
+      });
+    });
+  });
+  return result;
 };
