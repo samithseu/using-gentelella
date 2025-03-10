@@ -98,6 +98,7 @@ let draggedItem = null;
 const renderList = () => {
   const listContainer = document.querySelector(".draggable-list");
   listContainer.innerHTML = "";
+  listContainer.className = `w-fit justify-center flex flex-wrap gap-2 md:grid md:gap-2 md:grid-cols-2 *:px-3 *:py-1 *:border-green-500 *:border *:rounded-md`;
   listData.forEach((item, index) => {
     const h5 = document.createElement("h5");
     h5.className = "cursor-grab";
@@ -115,27 +116,28 @@ const renderList = () => {
 // Render the table with cells corresponding to each row, group, and column.
 const renderTable = () => {
   const tableContainer = document.querySelector("#dataTable");
+  tableContainer.className = `overflow-x-auto w-full max-w-full`;
   tableContainer.innerHTML = "";
   const table = document.createElement("table");
-  table.className = `table-fixed [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:min-w-[30px] md:[&_th]:min-w-[42px] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1 [&_td:has(h5)_h5]:text-sm [&_td:has(h5)_h5]:text-center [&_td:has(h5)_h5]:text-green-500 [&_td:has(h5)_h5]:cursor-grab`;
+  table.className = `min-w-[800px] table-auto border-collapse [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:min-w-[30px] md:[&_th]:min-w-[30px] lg:[&_th]:min-w-[3vw] xl:[&_th]:min-w-[3.8vw] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1 [&_td:has(h5)_h5]:text-sm [&_td:has(h5)_h5]:text-center [&_td:has(h5)_h5]:text-green-500 [&_td:has(h5)_h5]:cursor-grab`;
 
   // Create table header.
   const thead = document.createElement("thead");
   // First header row: group names.
   const headerRow1 = document.createElement("tr");
-  headerRow1.innerHTML = `<th class="text-green-500 dark:bg-black bg-white border border-black dark:border-green-500" rowspan="2">ថ្នាក់/ថ្ងៃ</th>`;
+  headerRow1.innerHTML = `<th class="text-green-500 dark:bg-black bg-white border border-black dark:border-green-500 select-none" rowspan="2">ថ្នាក់/ថ្ងៃ</th>`;
   allGroups.forEach((group, idx) => {
     headerRow1.innerHTML += `<th colspan="${
       allColumns.length
     }" class="bg-white dark:bg-black sticky top-0 left-0 text-green-500 py-2 z-[${
       (idx + 1) * 10
-    }] before:absolute before:content-[''] before:z-1 before:-inset-[.3px] before:border before:border-black dark:before:border-green-500">${group}</th>`;
+    }] before:absolute before:content-[''] before:z-1 before:-inset-[.3px] before:border before:border-black dark:before:border-green-500 select-none">${group}</th>`;
   });
   // Second header row: columns.
   const headerRow2 = document.createElement("tr");
   allGroups.forEach(() => {
     allColumns.forEach((col) => {
-      headerRow2.innerHTML += `<th class="text-sm -rotate-[65deg] border border-black dark:border-green-500 py-4">${col}</th>`;
+      headerRow2.innerHTML += `<th class="text-sm sm:-rotate-[65deg] md:rotate-0 border border-black dark:border-green-500 py-4 select-none">${col}</th>`;
     });
   });
   thead.appendChild(headerRow1);
@@ -146,7 +148,7 @@ const renderTable = () => {
   const tbody = document.createElement("tbody");
   tableData.forEach((row, classIndex) => {
     const tr = document.createElement("tr");
-    tr.className = "text-center";
+    tr.className = "text-center h-[3.2rem] select-none";
     // Row label cell.
     const tdLabel = document.createElement("td");
     tdLabel.innerText = row.id;
