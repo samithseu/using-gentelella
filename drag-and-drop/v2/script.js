@@ -98,7 +98,6 @@ let draggedItem = null;
 const renderList = () => {
   const listContainer = document.querySelector(".draggable-list");
   listContainer.innerHTML = "";
-  listContainer.className = `w-fit justify-center flex flex-wrap gap-2 md:grid md:gap-2 md:grid-cols-2 *:px-3 *:py-1 *:border-green-500 *:border *:rounded-md`;
   listData.forEach((item, index) => {
     const h5 = document.createElement("h5");
     h5.className = "cursor-grab";
@@ -115,8 +114,7 @@ const renderList = () => {
 
 // Render the table with cells corresponding to each row, group, and column.
 const renderTable = () => {
-  const tableContainer = document.querySelector("#dataTable");
-  tableContainer.className = `overflow-x-auto w-full max-w-full`;
+  const tableContainer = document.querySelector("#mainTableContainer");
   tableContainer.innerHTML = "";
   const table = document.createElement("table");
   table.className = `min-w-[800px] table-auto border-collapse [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:min-w-[30px] md:[&_th]:min-w-[30px] lg:[&_th]:min-w-[3vw] xl:[&_th]:min-w-[3.8vw] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1 [&_td:has(h5)_h5]:text-sm [&_td:has(h5)_h5]:text-center [&_td:has(h5)_h5]:text-green-500 [&_td:has(h5)_h5]:cursor-grab`;
@@ -295,6 +293,47 @@ const gatherTableData = () => {
 document
   .querySelector("#gatherDataButton")
   ?.addEventListener("click", gatherTableData);
+
+const elementToScroll = document.querySelector("#mainTableContainer");
+document.querySelector("#leftButton")?.addEventListener("click", scrollToLeft);
+document
+  .querySelector("#rightButton")
+  ?.addEventListener("click", scrollToRight);
+
+function scrollToLeft(e) {
+  // for mobile view, decrement scrollLeft 100
+  if (window.innerWidth < 768) {
+    elementToScroll.scrollLeft -= 300;
+    return;
+  }
+  // for tablet view, decrement scrollleft 300
+  if (window.innerWidth >= 768 && window.innerWidth < 1416) {
+    elementToScroll.scrollLeft -= 300;
+    return;
+    // for desktop view, decrement scrollLeft 500
+  }
+
+  if (window.innerWidth >= 1416) {
+    elementToScroll.scrollLeft -= 720;
+  }
+}
+
+function scrollToRight(e) {
+  // for mobile view, increment scrollLeft 100
+  if (window.innerWidth < 768) {
+    elementToScroll.scrollLeft += 300;
+    return;
+  }
+  // for tablet view, increment scrollleft 300
+  if (window.innerWidth >= 768 && window.innerWidth < 1416) {
+    elementToScroll.scrollLeft += 300;
+    return;
+    // for desktop view, increment scrollLeft 500
+  }
+  if (window.innerWidth >= 1416) {
+    elementToScroll.scrollLeft += 720;
+  }
+}
 
 // check if duplicate exists in other class at same (day & subject) index
 const isDuplicateFound = (dIdx, sIdx) => {
