@@ -57,16 +57,20 @@ let allColumns = [
 let allRows = [
   "7A",
   "7B",
+  "7C",
   "8A",
   "8B",
+  "8C",
   "9A",
   "9B",
+  "9C",
   "10A",
   "10B",
   "11A",
   "11B",
   "12A",
   "12B",
+  "12C",
 ];
 let allowMultipleValueInOneCell = false;
 
@@ -100,7 +104,7 @@ const renderList = () => {
   listContainer.innerHTML = "";
   listData.forEach((item, index) => {
     const h5 = document.createElement("h5");
-    h5.className = "cursor-grab";
+    h5.className = "cursor-grab h-fit";
     h5.draggable = true;
     h5.innerText = item.text;
     h5.dataset.itemId = item.id;
@@ -121,6 +125,7 @@ const renderTable = () => {
 
   // Create table header.
   const thead = document.createElement("thead");
+  thead.className = `sticky top-0 z-[99]`;
   // First header row: group names.
   const headerRow1 = document.createElement("tr");
   headerRow1.innerHTML = `<th class="text-green-500 dark:bg-black bg-white border border-black dark:border-green-500 select-none sticky top-0 left-0 z-[999] isolate before:absolute before:content-[''] before:z-1 before:inset-[0] before:border before:border-green-500/30 dark:text-white" rowspan="2">ថ្នាក់/ថ្ងៃ</th>`;
@@ -135,7 +140,7 @@ const renderTable = () => {
   const headerRow2 = document.createElement("tr");
   allGroups.forEach(() => {
     allColumns.forEach((col) => {
-      headerRow2.innerHTML += `<th class="text-sm sm:-rotate-[65deg] md:rotate-0 border border-black dark:border-green-500 py-4 select-none">${col}</th>`;
+      headerRow2.innerHTML += `<th class="text-sm sm:-rotate-[65deg] md:rotate-0 border border-black dark:border-green-500 py-4 select-none sticky left-0 z-[99] isolate before:absolute before:content-[''] before:z-1 before:inset-[0] before:border before:border-green-500/30 dark:text-white bg-white dark:bg-black">${col}</th>`;
     });
   });
   thead.appendChild(headerRow1);
