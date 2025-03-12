@@ -121,7 +121,7 @@ const renderTable = () => {
   const tableContainer = document.querySelector("#mainTableContainer");
   tableContainer.innerHTML = "";
   const table = document.createElement("table");
-  table.className = `min-w-[800px] table-auto border-collapse [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:min-w-[30px] md:[&_th]:min-w-[30px] lg:[&_th]:min-w-[3vw] xl:[&_th]:min-w-[3.8vw] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1 [&_td:has(h5)_h5]:text-sm [&_td:has(h5)_h5]:text-center [&_td:has(h5)_h5]:text-green-500 [&_td:has(h5)_h5]:cursor-grab`;
+  table.className = `min-w-[800px] table-auto !border-collapse [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:min-w-[30px] md:[&_th]:min-w-[30px] lg:[&_th]:min-w-[3vw] xl:[&_th]:min-w-[3.8vw] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1 [&_td:has(h5)_h5]:text-sm [&_td:has(h5)_h5]:text-center [&_td:has(h5)_h5]:text-green-500 [&_td:has(h5)_h5]:cursor-grab [&_tbody_tr>td:first-child]:border-none [&_tbody_tr>td:first-child+td]:border-s-none`;
 
   // Create table header.
   const thead = document.createElement("thead");
@@ -155,8 +155,7 @@ const renderTable = () => {
     // Row label cell.
     const tdLabel = document.createElement("td");
     tdLabel.innerText = row.id;
-    tdLabel.className =
-      "sticky top-0 left-0 z-20 isolate before:absolute before:content-[''] before:z-1 before:inset-[0] before:border before:border-green-500/30 dark:bg-black bg-white text-black dark:text-white";
+    tdLabel.className = `sticky top-0 left-0 z-20 isolate before:absolute before:content-[''] before:z-1 before:inset-0 before:border before:border-green-500 dark:before:border-green-500 dark:bg-black bg-white text-black dark:text-white`;
     tr.appendChild(tdLabel);
 
     // For each group (day).
@@ -241,7 +240,7 @@ const renderTable = () => {
         // If a subject exists in this cell, render it.
         if (cell.subject != null) {
           const h5 = document.createElement("h5");
-          h5.className = "drag-item";
+          h5.className = "cursor-grab";
           h5.draggable = true;
           h5.innerText = cell.subject.text;
           h5.dataset.itemId = cell.subject.id;
