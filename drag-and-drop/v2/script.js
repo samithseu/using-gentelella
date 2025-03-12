@@ -128,7 +128,7 @@ const renderTable = () => {
   thead.className = `sticky top-0 z-[99]`;
   // First header row: group names.
   const headerRow1 = document.createElement("tr");
-  headerRow1.innerHTML = `<th class="text-green-500 dark:bg-black bg-white border border-black dark:border-green-500 select-none sticky top-0 left-0 z-[999] isolate before:absolute before:content-[''] before:z-1 before:inset-[0] before:border before:border-green-500/30 dark:text-white" rowspan="2">ថ្នាក់/ថ្ងៃ</th>`;
+  headerRow1.innerHTML = `<th class="text-green-500 dark:bg-black bg-white border border-black dark:border-green-500 select-none sticky top-0 left-0 z-[999] isolate before:absolute before:content-[''] before:z-1 before:inset-[0] before:border before:border-black dark:before:border-green-500 dark:text-white" rowspan="2">ថ្នាក់/ថ្ងៃ</th>`;
   allGroups.forEach((group, idx) => {
     headerRow1.innerHTML += `<th colspan="${
       allColumns.length
@@ -140,7 +140,7 @@ const renderTable = () => {
   const headerRow2 = document.createElement("tr");
   allGroups.forEach(() => {
     allColumns.forEach((col) => {
-      headerRow2.innerHTML += `<th class="text-sm sm:-rotate-[65deg] md:rotate-0 border border-black dark:border-green-500 py-4 select-none sticky left-0 z-[99] isolate before:absolute before:content-[''] before:z-1 before:inset-[0] before:border before:border-green-500/30 dark:text-white bg-white dark:bg-black">${col}</th>`;
+      headerRow2.innerHTML += `<th class="text-sm sm:-rotate-[65deg] md:rotate-0 border border-black dark:border-green-500 py-4 select-none sticky left-0 z-[99] isolate before:absolute before:content-[''] before:z-1 before:inset-[0] before:border before:border-black dark:before:border-green-500 dark:text-white bg-white dark:bg-black">${col}</th>`;
     });
   });
   thead.appendChild(headerRow1);
