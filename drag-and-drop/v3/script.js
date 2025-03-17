@@ -119,7 +119,9 @@ const renderList = () => {
 // Render the table with cells corresponding to each row, group, and column.
 const renderTable = () => {
   const tableContainer = document.querySelector("#mainTableContainer");
-  const eachCellWidth = tableContainer.offsetWidth / 21;
+  const DAY_SHOW = 2;
+  const eachCellWidth =
+    tableContainer.offsetWidth / (allColumns.length * DAY_SHOW + 1);
   tableContainer.innerHTML = "";
   const table = document.createElement("table");
   table.className = `min-w-[800px] table-auto !border-collapse [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:min-w-[${eachCellWidth}px] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1 [&_td:has(h5)_h5]:text-sm [&_td:has(h5)_h5]:text-center [&_td:has(h5)_h5]:text-green-500 [&_td:has(h5)_h5]:cursor-grab [&_tbody_tr>td:first-child]:border-none [&_tbody_tr>td:first-child+td]:border-s-none`;
