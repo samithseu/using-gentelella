@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./index.html", "./script.js", "./style.css"],
+  content: ["./index.html", "./script.js"],
   theme: {
     fontFamily: {
       sans: ["Kantumruy Pro", "sans-serif"],
