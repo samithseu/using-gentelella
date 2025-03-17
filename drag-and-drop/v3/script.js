@@ -192,35 +192,27 @@ const renderTable = () => {
 
         // Allow drop only if cell is empty and not existed in other classes
         td.addEventListener("dragover", (e) => {
+          // if no class is selected, return;
           if (cell.subject != null || !selectedClass?.id) {
             return;
           }
-          const currentDayIndex = parseInt(td.dataset.dayIndex);
-          const currentSubjectIndex = parseInt(td.dataset.subjectIndex);
-          if (draggedItem && draggedItem.source === "table" && e.shiftKey) {
-            // Check duplicate across ALL rows (including same class)
-            if (isDuplicateFound(currentDayIndex, currentSubjectIndex)) {
-              td.classList.remove("bg-green-500/30");
-              return;
-            }
-          } else if (draggedItem && draggedItem.source === "table") {
-            if (
-              hasMoreThanOneID(
-                parseInt(td.dataset.classIndex),
-                parseInt(td.dataset.dayIndex),
-                currentSubjectIndex
-              )
-            ) {
-              td.classList.remove("bg-green-500/30");
-              return;
-            }
+          // if destination cell is not selected class, return;
+          if (parseInt(e.target.dataset.classIndex) !== selectedClass?.index) {
+            return;
+          }
+          // no dragging from other class into selected class
+          if (
+            draggedItem?.source === "table" &&
+            draggedItem?.classIdx !== selectedClass?.index
+          ) {
+            return;
           }
           e.preventDefault();
           td.classList.add("bg-green-500/30");
         });
 
         // remove bg-green-500/30 when drag over
-        td.addEventListener("dragleave", (e) => {
+        td.addEventListener("dragleave", () => {
           td.classList.remove("bg-green-500/30");
         });
 
@@ -236,17 +228,10 @@ const renderTable = () => {
           } else if (draggedItem && draggedItem.source === "table") {
             if (!e.shiftKey) {
               // Move: Remove from original cell before adding
+              // Copy: Shift + Drag
               const { classIdx, dayIdx, subjectIdx } = draggedItem;
               tableData[classIdx].days[dayIdx].subjects[subjectIdx].subject =
                 null;
-            } else {
-              // Duplicate: check for any duplicate on the same day and subject slot across ALL rows
-              if (isDuplicateFound(dayIndex, subjectIndex)) {
-                alert(
-                  "A teacher cannot teach 2 different classes at the same time."
-                );
-                return; // exit without adding the duplicate
-              }
             }
           }
           tableData[classIndex].days[dayIndex].subjects[subjectIndex].subject =
@@ -327,7 +312,7 @@ document
   .querySelector("#rightButton")
   ?.addEventListener("click", scrollToRight);
 
-function scrollToLeft(e) {
+function scrollToLeft() {
   // for mobile view, decrement scrollLeft 100
   if (window.innerWidth < 768) {
     elementToScroll.scrollLeft -= 300;
@@ -345,7 +330,7 @@ function scrollToLeft(e) {
   }
 }
 
-function scrollToRight(e) {
+function scrollToRight() {
   // for mobile view, increment scrollLeft 100
   if (window.innerWidth < 768) {
     elementToScroll.scrollLeft += 300;
@@ -361,38 +346,6 @@ function scrollToRight(e) {
     elementToScroll.scrollLeft += 720;
   }
 }
-
-// check if duplicate exists in other class at same (day & subject) index
-const isDuplicateFound = (dIdx, sIdx) => {
-  return tableData.some((row) => {
-    return (
-      row.days[dIdx] &&
-      row.days[dIdx].subjects[sIdx].subject &&
-      row.days[dIdx].subjects[sIdx].subject.id === draggedItem.id
-    );
-  });
-};
-
-// check if the id exists in other class at same (day & subject) index more than once
-const hasMoreThanOneID = (cIdx, dIdx, sIdx) => {
-  let hasMoreThanOne = false;
-  let counter = 0;
-  tableData.forEach((row, idx) => {
-    if (idx !== cIdx) {
-      if (
-        row.days[dIdx] &&
-        row.days[dIdx].subjects[sIdx].subject &&
-        row.days[dIdx].subjects[sIdx].subject.id === draggedItem.id
-      ) {
-        counter++;
-      }
-    }
-  });
-  if (counter > 1) {
-    hasMoreThanOne = true;
-  }
-  return hasMoreThanOne;
-};
 
 // check if duplicate exists in the table
 const isDuplicateExists = (id) => {
