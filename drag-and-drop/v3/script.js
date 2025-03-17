@@ -72,7 +72,7 @@ let allRows = [
   "12B",
   "12C",
 ];
-let selectedClass;
+let selectedClass = { id: null, index: -1 };
 
 // Generate table data with groups,
 // making sure each day gets its own fresh subjects array.
@@ -159,7 +159,20 @@ const renderTable = () => {
     // Row label cell.
     const tdLabel = document.createElement("td");
     tdLabel.innerText = row.id;
-    tdLabel.className = `cursor-pointer sticky top-0 left-0 z-20 isolate before:absolute before:content-[''] before:z-1 before:inset-0 before:border before:border-green-500 dark:before:border-green-500 dark:bg-black bg-white text-black dark:text-white`;
+    let tdLabelClasses = `selectable-class cursor-pointer sticky top-0 left-0 z-20 isolate before:absolute before:content-[''] before:z-1 before:inset-0 before:border before:border-green-500`;
+    if (classIndex !== selectedClass?.index) {
+      tdLabel.className = `${tdLabelClasses} dark:before:border-green-500 dark:bg-black bg-white text-black dark:text-white`;
+    } else {
+      tdLabel.className = `${tdLabelClasses} bg-green-500 text-black`;
+    }
+    tdLabel.addEventListener("click", () => {
+      // set selected class info
+      selectedClass = {
+        id: row.id,
+        index: classIndex,
+      };
+      renderTable();
+    });
     tr.appendChild(tdLabel);
 
     // For each group (day).
@@ -179,7 +192,7 @@ const renderTable = () => {
 
         // Allow drop only if cell is empty and not existed in other classes
         td.addEventListener("dragover", (e) => {
-          if (!(cell.subject == null)) {
+          if (cell.subject != null || !selectedClass?.id) {
             return;
           }
           const currentDayIndex = parseInt(td.dataset.dayIndex);
