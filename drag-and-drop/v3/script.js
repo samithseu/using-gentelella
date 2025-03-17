@@ -72,7 +72,7 @@ let allRows = [
   "12B",
   "12C",
 ];
-let allowMultipleValueInOneCell = false;
+let selectedClass;
 
 // Generate table data with groups,
 // making sure each day gets its own fresh subjects array.
@@ -172,7 +172,7 @@ const renderTable = () => {
 
         // Allow drop only if cell is empty and not existed in other classes
         td.addEventListener("dragover", (e) => {
-          if (!(allowMultipleValueInOneCell || cell.subject == null)) {
+          if (!(cell.subject == null)) {
             return;
           }
           const currentDayIndex = parseInt(td.dataset.dayIndex);
@@ -388,8 +388,3 @@ const isDuplicateExists = (id) => {
   });
   return result;
 };
-
-// let tblContainerWidth = document.querySelector(
-//   "#mainTableContainer"
-// ).offsetWidth;
-// console.log(tblContainerWidth / 21);
