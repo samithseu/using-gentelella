@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Drag and Drop version 3</title>
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link
+      href="https://fonts.bunny.net/css?family=kantumruy-pro:400,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://cdn-icons-png.flaticon.com/512/1589/1589574.png"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="w-full">
+      <h1
+        class="text-center mt-4 font-bold text-3xl text-black dark:text-white"
+      >
+        តារាងកំណត់កាលវិភាគប្រចាំសាលា
+      </h1>
+      <div
+        class="w-full p-4 md:p-6 lg:p-8 grid grid-cols-1 gap-4 md:!grid-cols-[max-content_1fr] md:gap-4"
+      >
+        <div
+          class="draggable-list w-fit justify-center flex flex-wrap gap-2 md:grid md:gap-2 md:grid-cols-2 *:px-3 *:py-1 *:border-green-500 *:border *:rounded-md *:bg-white dark:*:bg-black"
+        ></div>
+        <div class="relative flex flex-col gap-4 overflow-x-auto">
+          <div
+            id="mainTableContainer"
+            class="max-h-[41rem] overflow-y-auto overflow-x-auto w-full max-w-full mt-10 !scroll-smooth [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar]:h-[3px] [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-green-900 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-green-500 [&::-webkit-scrollbar-thumb]:border-2 [&::-webkit-scrollbar-thumb]:border-green-900 hover:[&::-webkit-scrollbar-thumb]:bg-white snap-x snap-proximity"
+          ></div>
+          <!-- all left and right buttons -->
+          <div class="w-full flex items-center justify-between">
+            <button
+              id="leftButton"
+              class="absolute top-0 left-0 z-50 bg-black w-fit px-5 text-white border border-white rounded-full transition-all duration-200 hover:text-black hover:border-green-500 hover:bg-green-500 *:size-6 disabled:bg-gray-500 disabled:border-gray-500"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="m7.85 13l2.85 2.85q.3.3.288.7t-.288.7q-.3.3-.712.313t-.713-.288L4.7 12.7q-.3-.3-.3-.7t.3-.7l4.575-4.575q.3-.3.713-.287t.712.312q.275.3.288.7t-.288.7L7.85 11H19q.425 0 .713.288T20 12t-.288.713T19 13z"
+                />
+              </svg>
+            </button>
+            <button
+              id="rightButton"
+              class="absolute top-0 right-0 z-[99] bg-black w-fit px-5 text-white border border-white rounded-full transition-all duration-200 hover:text-black hover:border-green-500 hover:bg-green-500 *:size-6 disabled:bg-gray-500 disabled:border-gray-500"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M16.15 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.15L13.3 8.15q-.3-.3-.288-.7t.288-.7q.3-.3.713-.312t.712.287L19.3 11.3q.15.15.213.325t.062.375t-.062.375t-.213.325l-4.575 4.575q-.3.3-.712.288t-.713-.313q-.275-.3-.288-.7t.288-.7z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
