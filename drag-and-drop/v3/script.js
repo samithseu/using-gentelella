@@ -143,6 +143,7 @@ const renderTable = () => {
   const headerRow2 = document.createElement("tr");
   allGroups.forEach(() => {
     allColumns.forEach((col) => {
+      // for scroll snap on <thead>
       headerRow2.innerHTML += `<th class="text-sm sm:-rotate-[65deg] md:rotate-0 outline outline-black dark:outline-green-500 py-4 select-none sticky left-0 z-[99] isolate before:absolute before:content-[''] before:z-1 before:inset-[0] before:outline before:outline-black dark:before:outline-green-500 dark:text-white bg-white dark:bg-black [&:first-child]:snap-end [&:nth-child(10n)]:snap-start">${col}</th>`;
     });
   });
@@ -158,7 +159,7 @@ const renderTable = () => {
     // Row label cell.
     const tdLabel = document.createElement("td");
     tdLabel.innerText = row.id;
-    tdLabel.className = `sticky top-0 left-0 z-20 isolate before:absolute before:content-[''] before:z-1 before:inset-0 before:border before:border-green-500 dark:before:border-green-500 dark:bg-black bg-white text-black dark:text-white`;
+    tdLabel.className = `cursor-pointer sticky top-0 left-0 z-20 isolate before:absolute before:content-[''] before:z-1 before:inset-0 before:border before:border-green-500 dark:before:border-green-500 dark:bg-black bg-white text-black dark:text-white`;
     tr.appendChild(tdLabel);
 
     // For each group (day).
@@ -166,6 +167,12 @@ const renderTable = () => {
       // For each column (subject cell) in this group.
       day.subjects.forEach((cell, subjectIndex) => {
         const td = document.createElement("td");
+        // for scroll snap on <tbody>
+        if (subjectIndex === 0) {
+          td.className = `snap-end`;
+        } else if (subjectIndex === allColumns.length - 1) {
+          td.className = `snap-start`;
+        }
         td.dataset.classIndex = classIndex;
         td.dataset.dayIndex = dayIndex;
         td.dataset.subjectIndex = subjectIndex;
