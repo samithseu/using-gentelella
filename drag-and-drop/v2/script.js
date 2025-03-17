@@ -72,7 +72,7 @@ let allRows = [
   "12B",
   "12C",
 ];
-let allowMultipleValueInOneCell = false;
+let selectedClass;
 
 // Generate table data with groups,
 // making sure each day gets its own fresh subjects array.
@@ -119,9 +119,12 @@ const renderList = () => {
 // Render the table with cells corresponding to each row, group, and column.
 const renderTable = () => {
   const tableContainer = document.querySelector("#mainTableContainer");
+  const DAY_SHOW = 2;
+  const eachCellWidth =
+    tableContainer.offsetWidth / (allColumns.length * DAY_SHOW + 1);
   tableContainer.innerHTML = "";
   const table = document.createElement("table");
-  table.className = `min-w-[800px] table-auto !border-collapse [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:min-w-[30px] md:[&_th]:min-w-[30px] lg:[&_th]:min-w-[3vw] xl:[&_th]:min-w-[3.8vw] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1 [&_td:has(h5)_h5]:text-sm [&_td:has(h5)_h5]:text-center [&_td:has(h5)_h5]:text-green-500 [&_td:has(h5)_h5]:cursor-grab [&_tbody_tr>td:first-child]:border-none [&_tbody_tr>td:first-child+td]:border-s-none`;
+  table.className = `min-w-[800px] table-auto !border-collapse [&_th]:border [&_td]:border [&_td]:border-green-500 [&_th]:min-w-[${eachCellWidth}px] [&_td]:text-lg [&_td]:px-2 [&_td]:py-1 [&_td:has(h5)_h5]:text-sm [&_td:has(h5)_h5]:text-center [&_td:has(h5)_h5]:text-green-500 [&_td:has(h5)_h5]:cursor-grab [&_tbody_tr>td:first-child]:border-none [&_tbody_tr>td:first-child+td]:border-s-none`;
 
   // Create table header.
   const thead = document.createElement("thead");
@@ -169,7 +172,7 @@ const renderTable = () => {
 
         // Allow drop only if cell is empty and not existed in other classes
         td.addEventListener("dragover", (e) => {
-          if (!(allowMultipleValueInOneCell || cell.subject == null)) {
+          if (!(cell.subject == null)) {
             return;
           }
           const currentDayIndex = parseInt(td.dataset.dayIndex);
