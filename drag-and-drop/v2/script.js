@@ -140,7 +140,7 @@ const renderTable = () => {
   const headerRow2 = document.createElement("tr");
   allGroups.forEach(() => {
     allColumns.forEach((col) => {
-      headerRow2.innerHTML += `<th class="text-sm sm:-rotate-[65deg] md:rotate-0 outline outline-black dark:outline-green-500 py-4 select-none sticky left-0 z-[99] isolate before:absolute before:content-[''] before:z-1 before:inset-[0] before:outline before:outline-black dark:before:outline-green-500 dark:text-white bg-white dark:bg-black">${col}</th>`;
+      headerRow2.innerHTML += `<th class="text-sm sm:-rotate-[65deg] md:rotate-0 outline outline-black dark:outline-green-500 py-4 select-none sticky left-0 z-[99] isolate before:absolute before:content-[''] before:z-1 before:inset-[0] before:outline before:outline-black dark:before:outline-green-500 dark:text-white bg-white dark:bg-black [&:first-child]:snap-end [&:nth-child(10n)]:snap-start">${col}</th>`;
     });
   });
   thead.appendChild(headerRow1);
