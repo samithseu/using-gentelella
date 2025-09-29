@@ -1,133 +1,99 @@
-/* SIDEBAR */
+/*
+ * Custom animations and mobile layout improvements
+ */
 
-/* sidebar title - ប្រព័ន្ធជួយការងារសាលារៀន */
-.site_title {
-  text-align: center;
-  padding-left: 0 !important;
-  font-family: var(--title-ff);
-  font-size: 1.8rem !important;
-}
-.nav_title {
-  width: 100% !important;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
-}
-/* ---------------- */
-
-/* sidebar menu */
-.nav-md #sidebar {
-  display: block !important;
-  @media screen and (width < 991px) {
-    display: none !important;
-  }
+/* --- Base Transitions --- */
+.nav-md .container.body .col-md-3.left_col,
+.nav-md .container.body .right_col,
+.nav-md .main_container .top_nav,
+.nav-sm .container.body .col-md-3.left_col,
+.nav-sm .container.body .right_col,
+.nav-sm .main_container .top_nav {
+    transition: all 0.3s ease-in-out;
 }
 
-/* each menu section title */
-.menu_section h3 {
-  font-family: var(--paragraph-ff) !important;
-  padding-left: 1em;
-  color: rgba(255, 255, 255, 0.6);
-  letter-spacing: 0.5px;
-  font-size: 1.6rem;
-  margin-block: 0.5em;
+/* --- Desktop animation --- */
+@media (min-width: 992px) {
+    /* No extra styles needed, the base transition is enough */
 }
 
-/* SVG icon for each menu in sidebar */
-.side-menu li a:has(svg) svg {
-  aspect-ratio: 1/1;
-  width: 20px !important;
-  flex-shrink: 0;
-}
-
-/* each menu when sidebar is expanded */
-.nav-md .side-menu li a {
-  padding-inline-start: 2.5em;
-  font-family: var(--subtitle-ff);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  & > span {
-    font-size: 1.5rem;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    gap: 0.8em;
-  }
-}
-/* each menu when sidebar is collapsed */
-.nav-sm .side-menu li a {
-  font-family: var(--paragraph-ff);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  & > span {
-    font-size: 1.4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  & span:last-of-type {
-    display: none;
-  }
-}
-
-/* sub menu in each menu of sidebar */
-.nav .child_menu li a {
-  font-size: 1.5rem !important;
-  font-family: var(--paragraph-ff);
-}
-.nav-md ul.nav.child_menu li {
-  & a {
-    padding-inline-start: 2.2rem;
-  }
-  /* list-dotted for sub menu in each menu */
-  --left-size: 4.2rem;
-  &::before {
-    left: calc(var(--left-size) - 4px) !important;
-  }
-  &::after {
-    left: var(--left-size) !important;
-  }
-}
-/* ---------------- */
-
-/* CONTENT */
-/* tile stats */
-.content-section_title {
-  font-family: var(--title-ff);
-  font-size: 2.4rem;
-  margin-block: 1em !important;
-}
-.tile_count .tile_stats_count {
-  & .count_top,
-  & .count_bottom {
-    font-family: var(--paragraph-ff);
-  }
-  & .count_top {
-    font-size: 1.6rem;
-    &:has(svg) svg {
-      fill: #73879c;
-      aspect-ratio: 1/1;
-      width: 0.8em !important;
+/* --- Mobile animation and layout fixes --- */
+@media (max-width: 991px) {
+    body {
+        overflow-x: hidden;
     }
-  }
-  & .count {
-    font-family: var(--subtitle-ff);
-  }
 
-  & .count_bottom {
-    display: flex;
-    gap: 0.5em;
-    & .green,
-    & .red {
-      display: flex;
-      justify-content: center;
+    /* Sidebar container */
+    .nav-md .container.body .col-md-3.left_col,
+    .nav-sm .container.body .col-md-3.left_col {
+        display: block;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        z-index: 10000; /* Higher z-index */
+        width: 200px;
+        padding: 0; /* Remove padding from the container */
     }
-  }
+
+    .nav-md .container.body .col-md-3.left_col {
+        transform: translateX(-100%);
+    }
+
+    .nav-sm .container.body .col-md-3.left_col {
+        transform: translateX(0);
+    }
+
+    /* Sidebar content animation */
+    .nav-sm .left_col .scroll-view > * {
+        opacity: 1;
+        transition: opacity 0.2s 0.1s ease-in-out;
+    }
+    .nav-md .left_col .scroll-view > * {
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    /* Hide site title on mobile */
+    .left_col .navbar.nav_title {
+        display: none;
+    }
+
+    /* Hide profile on mobile */
+    .left_col .profile {
+        display: none;
+    }
+
+    /* Adjust sidebar menu */
+    .main_menu_side {
+        padding: 15px;
+    }
+
+    /* Fix sidebar footer width and position */
+    .sidebar-footer {
+        width: 100%; /* Make it responsive */
+        position: absolute; /* Change from fixed to absolute */
+        bottom: 0;
+    }
+
+    /* Content area */
+    .nav-sm .container.body .right_col,
+    .nav-sm .main_container .top_nav {
+        margin-left: 0;
+    }
+
+    .right_col {
+        padding: 10px !important;
+    }
+
+    /* Overlay */
+    body.nav-sm::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 9999;
+    }
 }
-/* table content */
-.table_title {
-  font-family: var(--subtitle-ff);
-  font-size: 1.8rem;
-  line-height: normal;
-}
-/* ---------------- */

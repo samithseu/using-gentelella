@@ -29,6 +29,7 @@
 
     <!-- Custom Theme Style -->
     <link href="./build/css/custom.min.css" rel="stylesheet" />
+    <link href="./build/css/customize.css" rel="stylesheet" />
   </head>
 
   <body class="nav-md">
@@ -1055,5 +1056,17 @@
 
     <!-- Custom Theme Scripts -->
     <script src="./build/js/custom.min.js"></script>
+
+    <script>
+      document.addEventListener('click', function(e) {
+        const body = document.body;
+        if (body.classList.contains('nav-sm') && window.innerWidth < 992) {
+          const sidebar = document.querySelector('.left_col');
+          if (!sidebar.contains(e.target) && e.target.id !== 'menu_toggle' && !e.target.closest('#menu_toggle')) {
+            document.getElementById('menu_toggle').click();
+          }
+        }
+      });
+    </script>
   </body>
 </html>
